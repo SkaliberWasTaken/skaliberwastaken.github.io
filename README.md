@@ -16,4 +16,4 @@ A website designed to modulate Skalibers Caelesti Minecraft Resourcepack.
 
 * **Zoey Rad (lilZoeyXanax)** - *Something they contributed* - [Zoey's Website](zoey.rapturelab.net/)
 
-See also the list of [contributors](https://github.com/SekoiaTree/Modlesti/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/SkaliberWasTaken/SkaliberWasTaken.github.io/contributors) who participated in this project.
