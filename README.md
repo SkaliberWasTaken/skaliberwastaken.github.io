@@ -1,6 +1,6 @@
-# Modlesti
+# Skalibers Cool Website maybe.
 
-A website designed to modulate Skalibers Caelesti Minecraft Resourcepack.
+A website designed to make Skalibers projects easily accesible.
 
 ## Find out more
 
@@ -12,8 +12,8 @@ A website designed to modulate Skalibers Caelesti Minecraft Resourcepack.
 
 * **Skaliber** - *Made Caelesti and that litterallly it.* - [Skalibers Youtube](www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ)
 
-* **SekoiaTree** - *Something they contributed* - [SekoiaTree's Website](sekoiatree.github.io/)
+* **SekoiaTree** - *Probably backend stuff and messy front end* - [SekoiaTree's Website](sekoiatree.github.io/)
 
-* **Zoey Rad (lilZoeyXanax)** - *Something they contributed* - [Zoey's Website](zoey.rapturelab.net/)
+* **Zoey Rad (lilZoeyXanax)** - *Just trying to make a mobile first alright frontend* - [Zoey's Website](zoey.rapturelab.net/)
 
 See also the list of [contributors](https://github.com/SkaliberWasTaken/SkaliberWasTaken.github.io/contributors) who participated in this project.
