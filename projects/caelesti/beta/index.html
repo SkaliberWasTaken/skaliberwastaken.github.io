@@ -18,10 +18,51 @@
                 <span class="toggle"></span>
             </label>
         </div>
-        <button onclick="download()">Download the pack</button>
+        <div id="download">
+            <button onclick="download()">Download the pack</button>
+        </div>
     </div>
+    <script src="js/scripts.js"></script>
+    <p id="demo">test</p>
+    <p id="blob">test2</p>
 
-    <script src="js/scripts.js"></script >
-    <p id="demo"></p>
-</body>
-</html>
+
+    <div id="jszip_utils"></div>
+    <script type="text/javascript">
+        $("#demo").html("aaaa");
+        (function () {
+
+            //=========================
+            // JSZipUtils
+            //=========================
+            (function () {
+                // 1) get a promise of the content
+                var promise = new JSZip.external.Promise(function (resolve, reject) {
+                    JSZipUtils.getBinaryContent('https://stuk.github.io//jszip/test/ref/text.zip', function (err, data) {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(data);
+                        }
+                    });
+                });
+                $("#demo").html("aaaa");
+                promise.then(JSZip.loadAsync)                     // 2) chain with the zip promise
+                    .then(function (zip) {
+                        return zip.file("Hello.txt").async("string"); // 3) chain with the text content promise
+                    })
+                    .then(function success(text) {                    // 4) display the result
+                        $("#jszip_utils").append($("<p>", {
+                            "class": "alert alert-success",
+                            text: "loaded, content = " + text
+                        }));
+                    }, function error(e) {
+                        $("#jszip_utils").append($("<p>", {
+                            "class": "alert alert-danger",
+                            text: e
+                        }));
+                    });
+    </script>
+
+</body >
+</html >
