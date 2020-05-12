@@ -13,13 +13,36 @@
     <div id="background">
         <h1>Modular Caelesti options</h1>
         <div class="option">
+            <p class="extra-text">Dark mode UI</p>
             <label class="toggle-wrap">
-                <input type="checkbox" style="display:none" />
+                <input type="checkbox" style="display:none" id="dark-ui"/>
+                <span class="toggle"></span>
+            </label>
+        </div>
+        <div class="option">
+            <p class="extra-text">HD font</p>
+            <label class="toggle-wrap">
+                <input type="checkbox" style="display:none" id="font"/>
+                <span class="toggle"></span>
+            </label>
+        </div>
+        <div class="option">
+            <p class="extra-text">Better leaves</p> <!--TODO: make this a slider-->
+            <label class="toggle-wrap">
+                <input type="checkbox" style="display:none" id="leaves"/>
+                <span class="toggle"></span>
+            </label>
+        </div>
+        <div class="option">
+            <p class="extra-text">Hardcore darkness</p>
+            <label class="toggle-wrap">
+                <input type="checkbox" style="display:none" id="darkness"/>
                 <span class="toggle"></span>
             </label>
         </div>
         <div id="download">
             <button onclick="download()">Download the pack</button>
+            <p id="info"></p>
         </div>
     </div>
     <script src="js/scripts.js"></script>
@@ -28,41 +51,6 @@
 
 
     <div id="jszip_utils"></div>
-    <script type="text/javascript">
-        $("#demo").html("aaaa");
-        (function () {
-
-            //=========================
-            // JSZipUtils
-            //=========================
-            (function () {
-                // 1) get a promise of the content
-                var promise = new JSZip.external.Promise(function (resolve, reject) {
-                    JSZipUtils.getBinaryContent('https://stuk.github.io//jszip/test/ref/text.zip', function (err, data) {
-                        if (err) {
-                            reject(err);
-                        } else {
-                            resolve(data);
-                        }
-                    });
-                });
-                $("#demo").html("aaaa");
-                promise.then(JSZip.loadAsync)                     // 2) chain with the zip promise
-                    .then(function (zip) {
-                        return zip.file("Hello.txt").async("string"); // 3) chain with the text content promise
-                    })
-                    .then(function success(text) {                    // 4) display the result
-                        $("#jszip_utils").append($("<p>", {
-                            "class": "alert alert-success",
-                            text: "loaded, content = " + text
-                        }));
-                    }, function error(e) {
-                        $("#jszip_utils").append($("<p>", {
-                            "class": "alert alert-danger",
-                            text: e
-                        }));
-                    });
-    </script>
 
 </body >
 </html >

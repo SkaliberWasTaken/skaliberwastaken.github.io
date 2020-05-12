@@ -13,6 +13,7 @@ body {
 }
 
 .option {
+    margin-top: 10px;
     width: 100%;
     height: 10%;
     background-color: darkslategray;
@@ -57,4 +58,10 @@ body {
 /*what happens on press*/
 input:checked + .toggle {
     width: 100%;
+}
+
+.extra-text{
+    position:absolute;
+    top: 20%;
+    left: 25px;
 }
