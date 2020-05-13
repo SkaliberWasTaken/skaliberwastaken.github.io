@@ -14,6 +14,8 @@ A website designed to make Skalibers projects easily accesible.
 
 * **SekoiaTree** - *Probably backend stuff and messy front end* - [SekoiaTree's Website](sekoiatree.github.io/)
 
-* **Zoey Rad (lilZoeyXanax)** - *Just trying to make a mobile first alright frontend* - [Zoey's Website](https://zoey.rapturelab.net/)
+* **Zoey Rad** - *Just trying to make a mobile first alright frontend* - [Zoey's Website](https://zoey.rapturelab.net/)
+
+* **Chroma** - *Caelesti Icons I think, honestly idk there's people claiming their helping and idk what they even do smh*
 
 See also the list of [contributors](https://github.com/SkaliberWasTaken/SkaliberWasTaken.github.io/contributors) who participated in this project.
