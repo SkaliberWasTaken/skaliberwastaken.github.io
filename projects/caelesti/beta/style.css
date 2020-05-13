@@ -65,3 +65,25 @@ input:checked + .toggle {
     top: 20%;
     left: 25px;
 }
+
+/*progress bar*/
+#progress-bar{
+    display:inline-block;
+    background-color:black;
+    border-radius: 13px;
+    margin-left:5%;
+    padding:3px;
+    width:80%;
+    height:10px;
+}
+#progress-bar > div{
+    background-color:orangered;
+    width:100%;
+    height: 10px;
+    border-radius:10px;
+}
+#info > label{
+    display:inline-block;
+    width:10%;
+
+}

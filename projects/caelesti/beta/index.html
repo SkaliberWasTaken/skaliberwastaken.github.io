@@ -1,6 +1,6 @@
 <html>
 <head>
-    <!--Libraries: jquery, jszip and filesaver-->
+    <!--Libraries: jquery, jszip (and it's utils) and filesaver-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="dist/jszip.js"></script>
     <script src="dist/jszip-utils.js"></script>
@@ -42,7 +42,12 @@
         </div>
         <div id="download">
             <button onclick="download()">Download the pack</button>
-            <p id="info"></p>
+            <div id="info">
+                <label></label>
+                <div id="progress-bar">
+                    <div></div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="js/scripts.js"></script>
