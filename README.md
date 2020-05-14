@@ -10,9 +10,9 @@ A website designed to make Skalibers projects easily accesible.
 
 ## Authors
 
-* **Skaliber** - *Made Caelesti and that litterallly it.* - [Skalibers Youtube](www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ)
+* **Skaliber** - *Made Caelesti and that litterallly it.* - [Skalibers Youtube](https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ)
 
-* **SekoiaTree** - *Probably backend stuff and messy front end* - [SekoiaTree's Website](www.sekoiatree.github.io/)
+* **SekoiaTree** - *Probably backend stuff and messy front end*
 
 * **Zoey Rad** - *Just trying to make a mobile first alright frontend* - [Zoey's Website](https://zoey.rapturelab.net/)
 
