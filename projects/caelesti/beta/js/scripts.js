@@ -6,13 +6,13 @@
 function download() {
     var dark_mode_ui = true;
     var custom_font = true;
-    var better_leaves = true;
     var hardcore_darkness = true;
+    var sounds = true;
     //this part has been pretty much taken from the library's examples, with a couple edits.
     //this makes a promise (google it if you don't know, too complicated to explain here)
-    $("#info > label").html("unzipping...");
+    $("#info > label").html("Unzipping...");
     var promise = new JSZip.external.Promise(function (resolve, reject) {
-        //gets the content of the adress
+        //gets the content of the pack
         JSZipUtils.getBinaryContent("https://www.skaliber.net/projects/caelesti/beta/data/caelesti.zip", function (err, data) {
             if (err) {
                 reject(err);
@@ -30,6 +30,8 @@ function download() {
 
             hardcore_darkness = $("#darkness").is(':checked');
 
+            sounds = $("#sounds").is(':checked');
+
             if (dark_mode_ui) {
                 zip.remove("assets/minecraft/lang");
                 //TODO, do the rest
@@ -43,6 +45,10 @@ function download() {
 
             }
 
+            if (sounds) {
+                zip.remove("assets/minecraft/sounds");
+                zip.remove("assets/minecraft/sounds.json");
+            }
 
             var acacia = "ERROR";
             var birch = "ERROR";
@@ -52,7 +58,7 @@ function download() {
             var spruce = "ERROR";
 
             var weight = $("#leaves").val();
-            $("#info > label").html("Rezipping...");
+            $("#info > label").html("Rezipping and downloading...");
             //because javascript is a bit annoying, we have to use RegExp to actually replace all occurences.
             //the g means global
             const normal_l = new RegExp("NORMAL_LEAVES", 'g');
