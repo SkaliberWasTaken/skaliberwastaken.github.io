@@ -4,6 +4,7 @@
 //DOING by sekoia
 
 function download() {
+    $("#download>button").prop('disabled', true);
     var dark_mode_ui = true;
     var custom_font = true;
     var hardcore_darkness = true;
@@ -105,6 +106,7 @@ function download() {
                                                                 }).then(function (blob) { // generate the zip file
                                                                     $("#info > label").html("Done!")
                                                                     saveAs(blob, "caelesti-edit.zip"); // trigger the download
+                                                                    $("#download>button").prop('disabled', false);
                                                                 }, function (err) {
                                                                     $("#blob").text(err);
                                                                 });
@@ -117,7 +119,7 @@ function download() {
         });
 
 }
-document.getElementById("leaves").oninput = function () { //TODO make this better... please
+$("#leaves").on('input', function () { //TODO make this better... please
     $("#leaves").siblings("p").html("Better leaves: " + this.value + '%');
     this.style.background = 'linear-gradient(to right, #FFAE00 0%, #FFAE00 ' + this.value + '%, black ' + this.value + '%, black 100%)'
-};
+});
