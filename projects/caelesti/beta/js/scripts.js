@@ -120,6 +120,32 @@ function download() {
 
 }
 
+function noChange() {
+    var promise = new JSZip.external.Promise(function (resolve, reject) {
+        //gets the content of the pack
+        JSZipUtils.getBinaryContent("https://www.skaliber.net/projects/caelesti/beta/data/caelesti.zip", function (err, data) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+    //uses the promise to load the data. There is currently no error message if the load fails
+    promise.then(JSZip.loadAsync).then(function (zip) {
+        zip.generateAsync({ type: "blob" },
+            function updateCallback(metadata) { //basically the progress
+                $("#progress-bar > div").width(metadata.percent + "%");
+            }).then(function callback(blob) { // generate the zip file
+                $("#info > label").html("Done!")
+                saveAs(blob, "caelesti-edit.zip"); // trigger the download
+                $("#download>button").prop('disabled', false);
+            }, function (err) {
+                $("#blob").text(err);
+            })
+    });
+}
+
 function testfunction() {
     const blob = new Blob(['test'], { type: 'text/plain' });
     saveAs(blob, 'test.txt');
