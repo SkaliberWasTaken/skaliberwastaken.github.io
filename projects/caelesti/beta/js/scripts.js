@@ -103,7 +103,7 @@ function download() {
                                                             zip.generateAsync({ type: "blob" },
                                                                 function updateCallback(metadata) { //basically the progress
                                                                     $("#progress-bar > div").width(metadata.percent + "%");
-                                                                }).then(function (blob) { // generate the zip file
+                                                                }).then(function callback(blob) { // generate the zip file
                                                                     $("#info > label").html("Done!")
                                                                     saveAs(blob, "caelesti-edit.zip"); // trigger the download
                                                                     $("#download>button").prop('disabled', false);
@@ -119,6 +119,12 @@ function download() {
         });
 
 }
+
+function testfunction() {
+    const blob = new Blob(['test'], { type: 'text/plain' });
+    saveAs(blob, 'test.txt');
+}
+
 $("#leaves").on('input', function () { //TODO make this better... please
     $("#leaves").siblings("p").html("Better leaves: " + this.value + '%');
     this.style.background = 'linear-gradient(to right, #FFAE00 0%, #FFAE00 ' + this.value + '%, black ' + this.value + '%, black 100%)'
