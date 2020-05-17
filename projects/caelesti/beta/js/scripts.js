@@ -1,19 +1,17 @@
-/*Here I store constants containing each leaf model, with the text SPECIAL_LEAVES and NORMAL_LEAVES
- which are replaced by weights*/
-//TODO make this use a readfile instead
-//DOING by sekoia
-
 function download() {
     $("#download>button").prop('disabled', true);
     var dark_mode_ui = true;
     var custom_font = true;
-    var hardcore_darkness = true;
+    var hardcore_darkness_overworld = true;
+    var hardcore_darkness_nether = true;
+    var hardcore_darkness_end = true;
     var sounds = true;
     //this part has been pretty much taken from the library's examples, with a couple edits.
     //this makes a promise (google it if you don't know, too complicated to explain here)
     $("#info > label").html("Unzipping...");
     var promise = new JSZip.external.Promise(function (resolve, reject) {
         //gets the content of the pack
+        //TODO: use local filesystem
         JSZipUtils.getBinaryContent("https://www.skaliber.net/projects/caelesti/beta/data/caelesti.zip", function (err, data) {
             if (err) {
                 reject(err);
@@ -29,27 +27,48 @@ function download() {
 
             custom_font = $("#font").is(':checked');
 
-            hardcore_darkness = $("#darkness").is(':checked');
+            hardcore_darkness_overworld = $("#darkness_overworld").is(':checked');
+            hardcore_darkness_nether = $("#darkness_nether").is(':checked');
+            hardcore_darkness_end = $("#darkness_end").is(':checked');
 
             sounds = $("#sounds").is(':checked');
 
             if (dark_mode_ui) {
-                zip.remove("assets/minecraft/lang");
-                //TODO, do the rest
             }
 
             if (custom_font) {
                 zip.remove("assets/minecraft/textures/font");
             }
-
-            if (hardcore_darkness) {
-
+            //TODO: make these use local systems instead of adresses.
+            if (!hardcore_darkness_overworld) {
+                $("#demo").append("overworld");
+                $.load("https://www.skaliber.net/projects/caelesti/beta/data/world0.png", function (data, status) {
+                    zip.file("assets/minecraft/optifine/lightmap/world0.png", data);
+                });
+                $.get("https://www.skaliber.net/projects/caelesti/beta/data/world0_rain.png", function (data) {
+                    zip.file("assets/minecraft/optifine/lightmap/world0_rain.png", data);
+                });
+                $.get("https://www.skaliber.net/projects/caelesti/beta/data/world0_thunder.png", function (data) {
+                    zip.file("assets/minecraft/optifine/lightmap/world0_thunder.png", data);
+                });
+            }
+            if (!hardcore_darkness_nether) {
+                $.get("https://www.skaliber.net/projects/caelesti/beta/data/world-1.png", function (data) {
+                    zip.file("assets/minecraft/optifine/lightmap/world-1.png", data);
+                });
+            }
+            if (!hardcore_darkness_end) {
+                $.get("https://www.skaliber.net/projects/caelesti/beta/data/world-1.png", function (data) {
+                    zip.file("assets/minecraft/optifine/lightmap/world-1.png", data);
+                });
             }
 
             if (sounds) {
                 zip.remove("assets/minecraft/sounds");
                 zip.remove("assets/minecraft/sounds.json");
             }
+
+            //TODO: refactor everything after this
 
             var acacia = "ERROR";
             var birch = "ERROR";

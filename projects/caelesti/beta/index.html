@@ -33,16 +33,24 @@
         <div class="option">
             <p class="extra-text">Hardcore darkness</p>
             <label class="toggle-wrap">
-                <input type="checkbox" style="display:none" id="darkness" />
+                <input type="checkbox" style="display:none" id="darkness_overworld" />
+                <span class="toggle"></span>
+            </label>
+            <label class="toggle-wrap">
+                <input type="checkbox" style="display:none" id="darkness_nether" />
+                <span class="toggle"></span>
+            </label>
+            <label class="toggle-wrap">
+                <input type="checkbox" style="display:none" id="darkness_end" />
                 <span class="toggle"></span>
             </label>
         </div>
         <div class="option">
             <p class="extra-text">Custom sounds (reduces file size)</p>
-            <label class="toggle-wrap">
+            <div class="toggle-wrap">
                 <input type="checkbox" style="display:none" id="sounds" />
                 <span class="toggle"></span>
-            </label>
+            </div>
         </div>
         <div id="download">
             <button onclick="download()">Download the pack</button>

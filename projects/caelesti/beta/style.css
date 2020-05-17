@@ -20,13 +20,14 @@ body {
     border-radius: 15px;
     position: relative;
 }
+
+
 /*toggle button*/
 .toggle-wrap {
     position: relative;
     background-color: black;
     display: inline-block;
     margin-left: 85%;
-    margin-top: 5%;
     cursor: pointer;
     width: 10%;
     height: 20%;
@@ -59,6 +60,9 @@ body {
 input:checked + .toggle {
     width: 100%;
 }
+
+
+
 
 .extra-text{
     position:absolute;
