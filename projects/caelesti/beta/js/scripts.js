@@ -42,7 +42,7 @@ function download() {
             //TODO: make these use local systems instead of adresses.
             if (!hardcore_darkness_overworld) {
                 $("#demo").append("overworld");
-                $.load("https://www.skaliber.net/projects/caelesti/beta/data/world0.png", function (data, status) {
+                $.get("https://www.skaliber.net/projects/caelesti/beta/data/world0.png", function (data) {
                     zip.file("assets/minecraft/optifine/lightmap/world0.png", data);
                 });
                 $.get("https://www.skaliber.net/projects/caelesti/beta/data/world0_rain.png", function (data) {
