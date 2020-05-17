@@ -52,12 +52,12 @@ function download() {
                     zip.file("assets/minecraft/optifine/lightmap/world0_thunder.png", data);
                 });
             }
-            if (!hardcore_darkness_nether) {
+            if (hardcore_darkness_nether) {
                 $.get("https://www.skaliber.net/projects/caelesti/beta/data/world-1.png", function (data) {
                     zip.file("assets/minecraft/optifine/lightmap/world-1.png", data);
                 });
             }
-            if (!hardcore_darkness_end) {
+            if (hardcore_darkness_end) {
                 $.get("https://www.skaliber.net/projects/caelesti/beta/data/world-1.png", function (data) {
                     zip.file("assets/minecraft/optifine/lightmap/world-1.png", data);
                 });
