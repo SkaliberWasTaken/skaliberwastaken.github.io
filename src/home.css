@@ -1,0 +1,44 @@
+header {
+  background-image: url("/src/images/forest_resized.png");
+  background-color: #009028;
+  height: 75vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.button {
+	--width: 100%;
+	--time: 0.7s;
+	position: relative;
+	display: inline-block;
+	padding: 1em;
+	color: #000000;
+	background: #e0e0e0;
+	overflow: hidden;
+  text-decoration: none;
+}
+.button text {
+	position: relative;
+	z-index: 5;
+	transition: color var(--time);
+}
+.button:hover text {
+	color: #ffffff;
+}
+.button span {
+	position: absolute;
+	display: block;
+	content: "";
+	z-index: 0;
+	width: 0;	height: 0;
+	border-radius: 100%;
+	background: #009028;
+	transform: translate(-50%, -50%);
+	transition: width var(--time), padding-top var(--time);
+}
+.button:hover span {
+	width: calc(var(--width) * 2.25);
+	padding-top: calc(var(--width) * 2.25);
+}
