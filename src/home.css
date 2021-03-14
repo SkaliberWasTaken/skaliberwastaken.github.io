@@ -65,7 +65,9 @@ header {
 } .project-item img {
   border-radius: 4px;
   padding: 2%;
-  object-fit: contain;
   image-rendering: pixelated;
   width: 33.33%;
+} .project-item text {
+  padding: 2%;
+  width: 66.66%;
 }
