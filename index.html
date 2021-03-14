@@ -10,28 +10,27 @@
   	<meta name="description" content="Skaliber's Official Website - Home of Caelesti, Artibus, and many more projects!">
   	<link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/50083260?s=64" />
   	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://www.skaliber.net/src/home.css" />
   </head>
   <body>
-
     <!-- Header -->
-    <header class="w3-center">
-      <div class="display w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);">
+    <header class="w3-center" id="home">
+      <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);">
         <h1 class="w3-hide-small w3-xxxlarge">SKALIBER</h1>
         <h5 class="w3-hide-medium w3-hide-large" style="white-space:nowrap">SKALIBER</h5>
         <h4 class="w3-hide-small">MINECRAFT ARTIST</h4>
       </div>
       <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
-        <a href="/" class="button w3-bar-item">
+        <a href="#home" class="button w3-bar-item">
       		<span></span>
       		<text>Home</text>
       	</a>
-        <a href="/projects/" class="button w3-bar-item">
+        <a href="#projects" class="button w3-bar-item">
       		<span></span>
       		<text>Projects</text>
       	</a>
-        <a href="/socials/" class="button w3-bar-item">
+        <a href="#socials" class="button w3-bar-item">
       		<span></span>
       		<text>Socials</text>
       	</a>
@@ -39,20 +38,79 @@
     </header>
 
     <div class="w3-center w3-padding-16 w3-hide-large w3-hide-medium" style="background-color:e0e0e0;">
-      <div class="w3-bar">
-        <a href="/" class="button w3-bar-item">
+      <div class="w3-bar w3-padding-large">
+        <a href="#home" class="button w3-bar-item">
           <span></span>
           <text>Home</text>
         </a>
-        <a href="/projects/" class="button w3-bar-item">
+        <a href="#projects" class="button w3-bar-item">
           <span></span>
           <text>Projects</text>
         </a>
-        <a href="/socials/" class="button w3-bar-item">
+        <a href="#socials" class="button w3-bar-item">
           <span></span>
           <text>Socials</text>
         </a>
       </div>
     </div>
+
+    <div class="main w3-content w3-container">
+      <div class="w3-hide-small" style="height:2em"></div>
+      <h3 class="w3-center">
+				WELCOME!
+			</h3>
+			<div class="w3-padding-large">
+				<p>
+					I am the creator of Caelesti, a work-in-progress Minecraft resource pack, fuelled by the additional creative capabilities provided by Optifine.<br>
+          <br>
+          I also work on a number of datapacks, which also make use of niche features within Optifine to add new content to Minecraft.<br>
+          <br>
+          Feel free to poke around my website, and be sure to have fun!
+        </p>
+			</div>
+      <div class="w3-padding-large" id="projects">
+        <a href="/projects/caelesti/"><div class="project-item w3-row">
+          <img class="w3-col" src="/src/thumbs/caelesti.png" alt="Caelesti Logo">
+          <text class="w3-col">
+            Caelesti is amazing.<br>
+            Caelesti is great.<br>
+            Go download Caelesti,<br>
+            or I'll steal your kneecaps.
+          </text>
+        </div></a>
+        <a href="/projects/artibus/"><div class="project-item w3-row">
+          <img class="w3-col" src="/src/thumbs/artibus.png" alt="Artibus Logo">
+          <text class="w3-col">
+            Artibus is amazing.<br>
+            Artibus is great.<br>
+            Go download Artibus,<br>
+            or I'll steal your left shoulderblade.
+          </text>
+        </div></a>
+      </div>
+    </div>
+
+    <footer class="w3-center w3-padding-64" style="background-color: #009028; color: #ffffff" id="socials">
+			<div class="w3-xlarge w3-section w3-padding-large">
+        <a href="https://www.instagram.com/therealskaliber/" class="w3-hover-opacity" style="text-decoration: none;">
+					<i class="fa fa-instagram"></i>
+        </a>&nbsp
+        <a href="https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ" class="w3-hover-opacity" style="text-decoration: none;">
+					<i class="fa fa-youtube-play"></i>
+        </a>&nbsp
+				<a href="https://www.reddit.com/user/MagnogenOnTheMoon" class="w3-hover-opacity" style="text-decoration: none;">
+					<i class="fa fa-reddit-alien"></i>
+        </a>&nbsp
+        <a href="https://twitter.com/skaliber2" style="text-decoration: none;">
+          <i class="fa fa-twitter"></i>
+        </a>&nbsp
+        <a href="https://www.curseforge.com/members/skaliber" class="w3-hover-opacity" style="text-decoration: none;">
+          <img src="https://www.curseforge.com/Content/2-0-7736-21295/Skins/CurseForge/images/anvil.svg" width="32px"></i>
+        </a>
+			</div>
+			<p>
+				Follow Me On My Socials!
+			</p>
+		</footer>
   </body>
 </html>

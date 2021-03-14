@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 header {
   background-image: url("/src/images/forest_resized.png");
   background-color: #009028;
@@ -9,36 +13,59 @@ header {
 }
 
 .button {
-	--width: 100%;
-	--time: 0.7s;
-	position: relative;
-	display: inline-block;
-	padding: 1em;
-	color: #000000;
-	background: #e0e0e0;
-	overflow: hidden;
+  --width: 100%;
+  --time: 0.7s;
+  position: relative;
+  display: inline-block;
+  padding: 1em;
+  background: #e0e0e0;
+  overflow: hidden;
   text-decoration: none;
+} .button text {
+  position: relative;
+  z-index: 5;
+  color: #000000;
+  transition: color var(--time);
+} .button span {
+  opacity: 0;
+  position: absolute;
+  display: block;
+  content: "";
+  z-index: 0;
+  width: 0;	height: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background: #009028;
+  transform: translate(-50%, -50%);
+  transition: opacity 0s ease var(--time), width var(--time), padding-top var(--time);
 }
-.button text {
-	position: relative;
-	z-index: 5;
-	transition: color var(--time);
-}
+.button:nth-child(1) span { top: 50%; left: 100%; }
+.button:nth-child(2) span { top: 50%; left: 050%; }
+.button:nth-child(3) span { top: 50%; left: 000%; }
+
 .button:hover text {
-	color: #ffffff;
+  color: #ffffff;
+} .button:hover span {
+  opacity: 1;
+  width: calc(var(--width) * 2.25);
+  padding-top: calc(var(--width) * 2.25);
+  transition: opacity 0s, width var(--time), padding-top var(--time);
 }
-.button span {
-	position: absolute;
-	display: block;
-	content: "";
-	z-index: 0;
-	width: 0;	height: 0;
-	border-radius: 100%;
-	background: #009028;
-	transform: translate(-50%, -50%);
-	transition: width var(--time), padding-top var(--time);
-}
-.button:hover span {
-	width: calc(var(--width) * 2.25);
-	padding-top: calc(var(--width) * 2.25);
+
+.project-item {
+  background-color: #e0e0e0;
+  overflow: auto;
+  border-radius: 4px;
+  padding: 2%;
+  content: "";
+  clear: both;
+  display: table;
+  width: 100%;
+  margin: 2%;
+} .project-item img {
+  border-radius: 4px;
+  padding: 2%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  width: 33.33%;
 }
