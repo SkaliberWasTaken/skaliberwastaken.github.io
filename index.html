@@ -17,22 +17,22 @@
     <!-- Header -->
     <header class="w3-center" id="home">
       <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);">
-        <h1 class="w3-hide-small w3-xxxlarge">SKALIBER</h1>
-        <h5 class="w3-hide-medium w3-hide-large" style="white-space:nowrap">SKALIBER</h5>
-        <h4 class="w3-hide-small">MINECRAFT ARTIST</h4>
+        <h1 class="w3-hide-small w3-xxxlarge" id="hero-name"></h1>
+        <h5 class="w3-hide-medium w3-hide-large" style="white-space:nowrap" id="hero-name-small"></h5>
+        <h4 class="w3-hide-small" id="hero-description"></h4>
       </div>
       <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
         <a href="#home" class="button w3-bar-item">
       		<span></span>
-      		<text>Home</text>
+      		<text id="nav-home"></text>
       	</a>
         <a href="#projects" class="button w3-bar-item">
       		<span></span>
-      		<text>Projects</text>
+      		<text id="nav-projects"></text>
       	</a>
         <a href="#socials" class="button w3-bar-item">
       		<span></span>
-      		<text>Socials</text>
+      		<text id="nav-socials"></text>
       	</a>
       </div>
     </header>
@@ -41,51 +41,33 @@
       <div class="w3-bar w3-padding-large">
         <a href="#home" class="button w3-bar-item">
           <span></span>
-          <text>Home</text>
+          <text id="nav-home-small"></text>
         </a>
         <a href="#projects" class="button w3-bar-item">
           <span></span>
-          <text>Projects</text>
+          <text id="nav-projects-small"></text>
         </a>
         <a href="#socials" class="button w3-bar-item">
           <span></span>
-          <text>Socials</text>
+          <text id="nav-socials-small"></text>
         </a>
       </div>
     </div>
 
     <div class="main w3-content w3-container">
       <div class="w3-hide-small" style="height:2em"></div>
-      <h3 class="w3-center">
-				WELCOME!
-			</h3>
+      <h3 class="w3-center" id="content-title"></h3>
 			<div class="w3-padding-large">
-				<p>
-					I am the creator of Caelesti, a work-in-progress Minecraft resource pack, fuelled by the additional creative capabilities provided by Optifine.<br>
-          <br>
-          I also work on a number of datapacks, which also make use of niche features within Optifine to add new content to Minecraft.<br>
-          <br>
-          Feel free to poke around my website, and be sure to have fun!
-        </p>
+				<p id="content-main"></p>
 			</div>
       <div class="w3-padding-large" id="projects">
         <a href="/projects/caelesti/" class="project-item w3-row">
           <img class="w3-col" src="https://www.skaliber.net/src/thumbs/caelesti.png" alt="Caelesti Logo">
-          <text class="w3-col">
-            Caelesti is amazing.<br>
-            Caelesti is great.<br>
-            Go download Caelesti,<br>
-            or I'll steal your kneecaps.
-          </text>
+          <text class="w3-col" id="caelesti-description"></text>
         </a>
         <a href="/projects/artibus/" class="project-item w3-row">
           <img class="w3-col" src="https://www.skaliber.net/src/thumbs/artibus.png" alt="Artibus Logo">
-          <text class="w3-col">
-            Artibus is amazing.<br>
-            Artibus is great.<br>
-            Go download Artibus,<br>
-            or I'll steal your left shoulderblade.
-          </text>
+          <text class="w3-col" id="artibus-description"></text>
         </a>
       </div>
     </div>
@@ -108,9 +90,10 @@
           <img src="https://www.curseforge.com/Content/2-0-7736-21295/Skins/CurseForge/images/anvil.svg" width="32px"></i>
         </a>
 			</div>
-			<p>
-				Follow Me On My Socials!
-			</p>
+			<p id="footer-follow"></p>
 		</footer>
   </body>
+  <script defer src="assets/lang/en_us.js" charset="utf-8"></script>
+  <script defer src="data/pages/index.js" charset="utf-8"></script>
+  <script defer src="datapackish.js" charset="utf-8"></script>
 </html>
