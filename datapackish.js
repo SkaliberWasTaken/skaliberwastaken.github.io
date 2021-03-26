@@ -1,29 +1,36 @@
-also_small("hero-name", parse_text(pageData["hero"]["name"]));
-document.getElementById("hero-description").innerHTML = parse_text(pageData["hero"]["description"]);
-also_small("nav-home", parse_text(pageData["navigation"]["home"]));
-also_small("nav-projects", parse_text(pageData["navigation"]["projects"]));
-also_small("nav-socials", parse_text(pageData["navigation"]["socials"]));
-document.getElementById("content-title").innerHTML = parse_text(pageData["content"]["title"]);
-document.getElementById("content-main").innerHTML = parse_text(pageData["content"]["main"]);
-document.getElementById("caelesti-description").innerHTML = parse_text(pageData["content"]["caelesti"]["description"]);
-document.getElementById("artibus-description").innerHTML = parse_text(pageData["content"]["artibus"]["description"]);
-document.getElementById("footer-follow").innerHTML = parse_text(pageData["footer"]["follow"]);
-
-function also_small(normal, data) {
-  document.getElementById(normal).innerHTML = data;
-  document.getElementById(normal + "-small").innerHTML = data;
-}
-
-function parse_text(param) {
-  var out = "";
-  if (param.source == "pure_text") {out = param["value"];}
-  if (param.source == "translate_text") {
-    translate = lang[param["value"]];
-    if (Array.isArray(translate)) {
-      for (entryIndex in translate) {
-        out += translate[entryIndex] + "<br>";
+$.getJSON("data/pages/index.json", function(page_data) {
+  $.getJSON("assets/lang/en_us.json", function(lang_data) {
+    var keys = Object.keys(page_data.contents);
+    for (var index in keys) {
+      if (keys[index].endsWith(":style")) {
+        $("[tag=\"" + keys[index].replace(":style", "") + "\"]").css(parse(page_data.contents[keys[index]], lang_data, "css"));
+      } else {
+        $("[tag=\"" + keys[index] + "\"]").html(parse(page_data.contents[keys[index]], lang_data, "value"));
       }
-    } else {out = translate;}
+    }
+  });
+});
+
+function parse(param, lang, ctx) {
+  var out = "";
+  var entryIndex = 0;
+  if (typeof param == "string") { out += param; } else
+  if (Array.isArray(param)) {
+    if (ctx == "rand") { out = param[Math.floor(Math.random() * param.length)]; } else
+    if (ctx == "br") {
+      for (entryIndex in param) {
+        out += parse(param[entryIndex], lang);
+        if (entryIndex != param.length - 1){out += "<br>";}
+      }
+    } else {
+      for (entryIndex in param) { out += parse(param[entryIndex], lang); }
+    }
+  } else
+  if (typeof param == "object") {
+    if (param.type == "translate_text") { out += parse(lang[param.value], lang, "value"); }
+    else if (param.type == "random_list") { out += parse(param.value, lang, "rand"); }
+    else if (param.type == "linebreak_list") { out += parse(param.value, lang, "br"); }
+    else {out += parse(param.value, lang, "value");}
   }
   return out;
 }

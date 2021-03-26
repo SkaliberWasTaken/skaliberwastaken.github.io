@@ -3,7 +3,7 @@ html {
 }
 
 header {
-  background-image: url("/src/images/forest_resized.png");
+  background-image: url("images/forest_resized.png");
   background-color: #009028;
   height: 75vh;
   background-position: center;

@@ -11,28 +11,28 @@
   	<link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/50083260?s=64" />
   	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://www.skaliber.net/src/styles.css" />
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
     <!-- Header -->
     <header class="w3-center" id="home">
       <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);">
-        <h1 class="w3-hide-small w3-xxxlarge" id="hero-name"></h1>
-        <h5 class="w3-hide-medium w3-hide-large" style="white-space:nowrap" id="hero-name-small"></h5>
-        <h4 class="w3-hide-small" id="hero-description"></h4>
+        <h1 class="w3-hide-small w3-xxxlarge" tag="hero-title"></h1>
+        <h5 class="w3-hide-medium w3-hide-large" tag="hero-title"></h5>
+        <h4 class="w3-hide-small" tag="hero-subtitle"></h4>
       </div>
       <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
         <a href="#home" class="button w3-bar-item">
       		<span></span>
-      		<text id="nav-home"></text>
+      		<text tag="navbar-home"></text>
       	</a>
         <a href="#projects" class="button w3-bar-item">
       		<span></span>
-      		<text id="nav-projects"></text>
+      		<text tag="navbar-projects"></text>
       	</a>
         <a href="#socials" class="button w3-bar-item">
       		<span></span>
-      		<text id="nav-socials"></text>
+      		<text tag="navbar-socials"></text>
       	</a>
       </div>
     </header>
@@ -41,33 +41,33 @@
       <div class="w3-bar w3-padding-large">
         <a href="#home" class="button w3-bar-item">
           <span></span>
-          <text id="nav-home-small"></text>
+          <text tag="navbar-home"></text>
         </a>
         <a href="#projects" class="button w3-bar-item">
           <span></span>
-          <text id="nav-projects-small"></text>
+          <text tag="navbar-projects"></text>
         </a>
         <a href="#socials" class="button w3-bar-item">
           <span></span>
-          <text id="nav-socials-small"></text>
+          <text tag="navbar-socials"></text>
         </a>
       </div>
     </div>
 
     <div class="main w3-content w3-container">
       <div class="w3-hide-small" style="height:2em"></div>
-      <h3 class="w3-center" id="content-title"></h3>
+      <h3 class="w3-center" tag="main-title"></h3>
 			<div class="w3-padding-large">
-				<p id="content-main"></p>
+				<p tag="main-content"></p>
 			</div>
       <div class="w3-padding-large" id="projects">
         <a href="/projects/caelesti/" class="project-item w3-row">
           <img class="w3-col" src="https://www.skaliber.net/src/thumbs/caelesti.png" alt="Caelesti Logo">
-          <text class="w3-col" id="caelesti-description"></text>
+          <text class="w3-col" tag="caelesti-description"></text>
         </a>
         <a href="/projects/artibus/" class="project-item w3-row">
           <img class="w3-col" src="https://www.skaliber.net/src/thumbs/artibus.png" alt="Artibus Logo">
-          <text class="w3-col" id="artibus-description"></text>
+          <text class="w3-col" tag="artibus-description"></text>
         </a>
       </div>
     </div>
@@ -90,10 +90,9 @@
           <img src="https://www.curseforge.com/Content/2-0-7736-21295/Skins/CurseForge/images/anvil.svg" width="32px"></i>
         </a>
 			</div>
-			<p id="footer-follow"></p>
+			<p tag="footer"></p>
 		</footer>
   </body>
-  <script defer src="assets/lang/en_us.js" charset="utf-8"></script>
-  <script defer src="data/pages/index.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="datapackish.js" charset="utf-8"></script>
 </html>
