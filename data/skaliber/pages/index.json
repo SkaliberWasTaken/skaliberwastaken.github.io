@@ -2,7 +2,7 @@
   "meta": {
     "title": "Home | Skaliber.net"
   },
-  "color_palette": "skaliber:home",
+  "color_palette": "skaliber:index",
   "contents": {
     "hero-title": { "type": "translate_text", "value": "index.hero_title" },
     "hero-subtitle": { "type": "translate_text", "value": "index.hero_subtitle" },
