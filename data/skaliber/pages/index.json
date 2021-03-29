@@ -4,6 +4,15 @@
   },
   "color_palette": "skaliber:index",
   "contents": {
+    "hero:style": {
+      "background-image": {"type": "local_image", "value": {"type": "random_list", "value": [
+        "skaliber:caelesti_forest",
+        "skaliber:caelesti_hill",
+        "skaliber:caelesti_swamp",
+        "skaliber:caelesti_warped_nether"
+      ]}},
+      "background-color": "#009028"
+    },
     "hero-title": { "type": "translate_text", "value": "index.hero_title" },
     "hero-subtitle": { "type": "translate_text", "value": "index.hero_subtitle" },
     "navbar-home": {"type": "translate_text", "value": "index.navbar_home"},

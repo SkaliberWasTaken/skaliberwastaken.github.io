@@ -1,20 +1,22 @@
 function perform(s) {
   s = settings(s);
-  $.getJSON(url(s.page_data, s, "data/[n]/pages/[v].json"), function(page_data) {
+  $.getJSON(url(s.page_data, s, "[u]data/[n]/pages/[v].json"), function(page_data) {
     // alert(JSON.stringify(page_data));
-    $.getJSON(url(s.lang_data, s, "assets/[n]/lang/[v].json"), function(lang_data) {
+    $.getJSON(url(s.lang_data, s, "[u]assets/[n]/lang/[v].json"), function(lang_data) {
       // alert(JSON.stringify(lang_data));
-      $.getJSON(url(parse(page_data.color_palette, lang_data, "value"), s, "assets/[n]/palettes/[v].json"), function(palette_data) {
-        // alert(JSON.stringify(palette_data));
-        var keys = Object.keys(page_data.contents);
-        for (var index in keys) {
-          if (keys[index].endsWith(":style")) {
-            $("[tag=\"" + keys[index].replace(":style", "") + "\"]").css(parse(page_data.contents[keys[index]], lang_data, "css"));
-          } else {
-            $("[tag=\"" + keys[index] + "\"]").html(parse(page_data.contents[keys[index]], lang_data, "value"));
+      var content_keys = Object.keys(page_data.contents);
+      for (var content_index in content_keys) {
+        if (content_keys[content_index].endsWith(":style")) {
+          var css_keys = Object.keys(page_data.contents[content_keys[content_index]]);
+          for (var css_index in css_keys) {
+            $("[tag=\"" + content_keys[content_index].replace(":style", "") + "\"]").css(css_keys[css_index], parse(page_data.contents[content_keys[content_index]][css_keys[css_index]], s, lang_data, "value"));
+            // alert("\"" +  content_keys[content_index].replace(":style", "") + "\": " + css_keys[css_index] + ": " + parse(page_data.contents[content_keys[content_index]][css_keys[css_index]], s, lang_data, "value"));
           }
+        } else {
+          $("[tag=\"" + content_keys[content_index] + "\"]").html(parse(page_data.contents[content_keys[content_index]], s, lang_data, "value"));
+          // alert("\"" + content_keys[content_index] + "\": \"" + parse(page_data.contents[content_keys[content_index]], s, lang_data, "value") + "\"");
         }
-      });
+      }
     });
   });
 }
@@ -22,7 +24,7 @@ function perform(s) {
 function url(input, settings, ctx) {
   var namespace = input.substring(0, input.indexOf(":"));
   var value = input.substring(input.indexOf(":") + 1);
-  input = settings.content_src + ctx.replace("[n]", namespace).replace("[v]", value);
+  input = ctx.replace("[u]", settings.content_src).replace("[n]", namespace).replace("[v]", value);
   // alert(input);
   return input;
 }
@@ -38,7 +40,7 @@ function settings(settings) {
   return settings;
 }
 
-function parse(param, lang, ctx) {
+function parse(param, settings, lang, ctx) {
   var out = "";
   var entryIndex = 0;
   if (typeof param == "string") {
@@ -48,18 +50,19 @@ function parse(param, lang, ctx) {
     if (ctx == "rand") { out = param[Math.floor(Math.random() * param.length)]; } else
     if (ctx == "br") {
       for (entryIndex in param) {
-        out += parse(param[entryIndex], lang);
+        out += parse(param[entryIndex], settings, lang, "value");
         if (entryIndex != param.length - 1){out += "<br>";}
       }
     } else {
-      for (entryIndex in param) { out += parse(param[entryIndex], lang); }
+      for (entryIndex in param) { out += parse(param[entryIndex], settings, lang, "value"); }
     }
   } else
   if (typeof param == "object") {
-    if (param.type == "translate_text") { out += parse(lang[param.value], lang, "value"); }
-    else if (param.type == "random_list") { out += parse(param.value, lang, "rand"); }
-    else if (param.type == "linebreak_list") { out += parse(param.value, lang, "br"); }
-    else {out += parse(param.value, lang, "value");}
+    if (param.type == "translate_text") { out += parse(lang[param.value], settings, lang, "value"); }
+    else if (param.type == "random_list") { out += parse(param.value, settings, lang, "rand"); }
+    else if (param.type == "linebreak_list") { out += parse(param.value, settings, lang, "br"); }
+    else if (param.type == "local_image") { out += url(parse(param.value, settings, lang, "value"), settings, "url([u]assets/[n]/images/[v].png)"); }
+    else {out = parse(param.value, settings, lang, "value");}
   }
   return out;
 }

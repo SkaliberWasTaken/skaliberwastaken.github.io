@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Caelesti | Skaliber.net"
+  },
+  "contents": {
+    "hero:style": {
+      "background-image": {"type": "local_image", "value":
+        "skaliber:caelesti_gradient"
+      },
+      "background-color": "#dd4264"
+    },
+    "hero-title": { "type": "translate_text", "value": "index.hero_title" },
+    "hero-subtitle": { "type": "translate_text", "value": "index.hero_subtitle" },
+    "navbar-home": {"type": "translate_text", "value": "index.navbar_home"},
+    "navbar-projects": {"type": "translate_text", "value": "index.navbar_projects"},
+    "navbar-socials": {"type": "translate_text", "value": "index.navbar_socials"},
+    "main-title": {"type": "translate_text", "value": "index.main_title"},
+    "main-content": {"type": "translate_text", "value": "index.main_description"},
+    "caelesti-description": {"type": "translate_text", "value": "index.project_caelesti_description"},
+    "artibus-description": {"type": "translate_text", "value": "index.project_artibus_description"},
+    "footer": {"type": "translate_text", "value": "index.footer_follow"}
+  }
+}
