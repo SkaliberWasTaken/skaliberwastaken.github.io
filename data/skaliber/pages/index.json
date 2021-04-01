@@ -5,23 +5,23 @@
   "color_palette": "skaliber:index",
   "contents": {
     "hero:style": {
-      "background-image": {"type": "local_image", "value": {"type": "random_list", "value": [
-        "skaliber:caelesti_forest",
-        "skaliber:caelesti_hill",
-        "skaliber:caelesti_swamp",
-        "skaliber:caelesti_warped_nether"
+      "background-image": {"type": "local_image", "value": {"type": "uniform_random", "value": [
+        "skaliber:home_hero/caelesti_forest",
+        "skaliber:home_hero/caelesti_hill",
+        "skaliber:home_hero/caelesti_swamp",
+        "skaliber:home_hero/caelesti_warped_nether"
       ]}},
       "background-color": "#009028"
     },
-    "hero-title": { "type": "translate_text", "value": "index.hero_title" },
-    "hero-subtitle": { "type": "translate_text", "value": "index.hero_subtitle" },
-    "navbar-home": {"type": "translate_text", "value": "index.navbar_home"},
-    "navbar-projects": {"type": "translate_text", "value": "index.navbar_projects"},
-    "navbar-socials": {"type": "translate_text", "value": "index.navbar_socials"},
-    "main-title": {"type": "translate_text", "value": "index.main_title"},
-    "main-content": {"type": "translate_text", "value": "index.main_description"},
-    "caelesti-description": {"type": "translate_text", "value": "index.project_caelesti_description"},
-    "artibus-description": {"type": "translate_text", "value": "index.project_artibus_description"},
-    "footer": {"type": "translate_text", "value": "index.footer_follow"}
+    "hero-title": { "type": "translate", "value": "index.hero_title" },
+    "hero-subtitle": { "type": "translate", "value": "index.hero_subtitle" },
+    "navbar-home": {"type": "translate", "value": "index.navbar_home"},
+    "navbar-projects": {"type": "translate", "value": "index.navbar_projects"},
+    "navbar-socials": {"type": "translate", "value": "index.navbar_socials"},
+    "main-title": {"type": "translate", "value": "index.main_title"},
+    "main-description": {"type": "translate", "value": "index.main_description"},
+    "caelesti-description": {"type": "translate", "value": "index.project_caelesti_description"},
+    "artibus-description": {"type": "translate", "value": "index.project_artibus_description"},
+    "footer": {"type": "translate", "value": "index.footer_follow"}
   }
 }
