@@ -14,16 +14,14 @@
     "Feel free to poke around my website, and be sure to have fun!"
   ]},
   "index.project_caelesti_description": { "type": "linebreak_list", "value": [
-    "Caelesti is amazing.",
-    "Caelesti is great.",
-    "Go download Caelesti,",
-    "or I'll steal your kneecaps."
+    "My main resource pack.",
+    "(Requires OptiFine)"
+  ]},
+  "index.project_caelesti_lite_description": { "type": "linebreak_list", "value": [
+    "My main resource pack, trimmed down to work with vanilla Minecraft."
   ]},
   "index.project_artibus_description": { "type": "linebreak_list", "value": [
-    "Artibus is amazing.",
-    "Artibus is great.",
-    "Go download Artibus,",
-    "or I'll steal your left shoulderblade."
+    "A datapack I've been working on since the dawn of time."
   ]},
   "index.footer_follow": "Follow Me On My Socials!"
 }

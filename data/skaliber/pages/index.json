@@ -15,13 +15,20 @@
     },
     "hero-title": { "type": "translate", "value": "index.hero_title" },
     "hero-subtitle": { "type": "translate", "value": "index.hero_subtitle" },
+    "navbar-buttons:style": {
+      "background-color": "#009028"
+    },
     "navbar-home": {"type": "translate", "value": "index.navbar_home"},
     "navbar-projects": {"type": "translate", "value": "index.navbar_projects"},
     "navbar-socials": {"type": "translate", "value": "index.navbar_socials"},
     "main-title": {"type": "translate", "value": "index.main_title"},
     "main-description": {"type": "translate", "value": "index.main_description"},
     "caelesti-description": {"type": "translate", "value": "index.project_caelesti_description"},
+    "caelesti-lite-description": {"type": "translate", "value": "index.project_caelesti_lite_description"},
     "artibus-description": {"type": "translate", "value": "index.project_artibus_description"},
-    "footer": {"type": "translate", "value": "index.footer_follow"}
+    "footer:style": {
+      "background-color": "#009028"
+    },
+    "footer-caption": {"type": "translate", "value": "index.footer_follow"}
   }
 }

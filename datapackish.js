@@ -1,3 +1,6 @@
+// global variables
+var hero_color = "";
+
 // called by the page when it wants to set the values in the page
 function perform(s) {
   // defaults the settings
@@ -15,8 +18,13 @@ function perform(s) {
         if (content_keys[content_index].endsWith(":style")) {
           var css_keys = Object.keys(page_data.contents[content_keys[content_index]]);
           for (var css_index in css_keys) {
-            $("[tag=\"" + content_keys[content_index].replace(":style", "") + "\"]").css(css_keys[css_index], parse(page_data.contents[content_keys[content_index]][css_keys[css_index]], s, lang_data, "value"));
-            // alert("\"" +  content_keys[content_index].replace(":style", "") + "\": " + css_keys[css_index] + ": " + parse(page_data.contents[content_keys[content_index]][css_keys[css_index]], s, lang_data, "value"));
+            if (content_keys[content_index] == "hero:style" && css_keys[css_index] == "background-color") {
+              hero_color = parse(page_data.contents[content_keys[content_index]][css_keys[css_index]], s, lang_data, "value");
+              $("[tag=\"" + content_keys[content_index].replace(":style", "") + "\"]").css(css_keys[css_index], hero_color);
+            } else {
+              $("[tag=\"" + content_keys[content_index].replace(":style", "") + "\"]").css(css_keys[css_index], parse(page_data.contents[content_keys[content_index]][css_keys[css_index]], s, lang_data, "value"));
+              // alert("\"" +  content_keys[content_index].replace(":style", "") + "\": " + css_keys[css_index] + ": " + parse(page_data.contents[content_keys[content_index]][css_keys[css_index]], s, lang_data, "value"));
+            }
           }
         }
         // sets the object's content
