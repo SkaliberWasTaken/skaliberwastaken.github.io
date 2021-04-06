@@ -62,21 +62,21 @@
     </div>
 
     <footer class="w3-center w3-padding-64" style="color:#ffffff" tag="footer" id="socials">
-			<div class="w3-xlarge w3-section w3-padding-large">
-        <a href="https://www.instagram.com/therealskaliber/" class="w3-hover-opacity" style="text-decoration: none;">
-					<i class="fa fa-instagram"></i>
-        </a>&nbsp
-        <a href="https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ" class="w3-hover-opacity" style="text-decoration: none;">
-					<i class="fa fa-youtube-play"></i>
-        </a>&nbsp
-				<a href="https://www.reddit.com/user/Skaliber/" class="w3-hover-opacity" style="text-decoration: none;">
-					<i class="fa fa-reddit-alien"></i>
-        </a>&nbsp
-        <a href="https://twitter.com/skaliber2" class="w3-hover-opacity" style="text-decoration: none;">
-          <i class="fa fa-twitter"></i>
-        </a>&nbsp
-        <a href="https://www.curseforge.com/members/skaliber" class="w3-hover-opacity" style="text-decoration: none;">
+			<div class="w3-xlarge w3-section w3-padding-large socials">
+        <a href="https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ" class="w3-hover-opacity social" style="text-decoration: none;">
+          <i class="fa fa-youtube-play"></i>
+        </a>
+        <a href="https://www.curseforge.com/members/skaliber/projects" class="w3-hover-opacity social" style="text-decoration: none;">
           <img src="src/curseforge.svg" width="32px"></i>
+        </a>
+        <a href="https://www.reddit.com/user/Skaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
+          <i class="fa fa-reddit-alien"></i>
+        </a>
+        <a href="https://www.instagram.com/therealskaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
+					<i class="fa fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/skaliber2" class="w3-hover-opacity social" style="text-decoration: none;">
+          <i class="fa fa-twitter"></i>
         </a>
 			</div>
 			<p tag="footer-caption"></p>
@@ -94,7 +94,7 @@
     });
 
     window.addEventListener("scroll", function() {
-      if (window.scrollY > (window.innerHeight * 0.75) - (2.5 * 16)) {
+      if (window.scrollY > (window.innerHeight * 0.75) - 40) {
         $("header .fade").css({"background-color": hero_color + "ff"});
       } else {
         $("header .fade").css({"background-color": hero_color + "00"});
