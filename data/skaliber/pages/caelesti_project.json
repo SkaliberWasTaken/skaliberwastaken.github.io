@@ -1,23 +1,27 @@
 {
-  "meta": {
-    "title": "Caelesti | Skaliber.net"
-  },
   "contents": {
     "hero:style": {
-      "background-image": {"type": "local_image", "value":
-        "skaliber:caelesti_gradient"
-      },
+      "background-image": {"type": "local_image", "value": {"type": "uniform_random", "value": [
+        "skaliber:caelesti_hero/gradient"
+      ]}},
       "background-color": "#dd4264"
     },
-    "hero-title": { "type": "translate_text", "value": "index.hero_title" },
-    "hero-subtitle": { "type": "translate_text", "value": "index.hero_subtitle" },
-    "navbar-home": {"type": "translate_text", "value": "index.navbar_home"},
-    "navbar-projects": {"type": "translate_text", "value": "index.navbar_projects"},
-    "navbar-socials": {"type": "translate_text", "value": "index.navbar_socials"},
-    "main-title": {"type": "translate_text", "value": "index.main_title"},
-    "main-content": {"type": "translate_text", "value": "index.main_description"},
-    "caelesti-description": {"type": "translate_text", "value": "index.project_caelesti_description"},
-    "artibus-description": {"type": "translate_text", "value": "index.project_artibus_description"},
-    "footer": {"type": "translate_text", "value": "index.footer_follow"}
+    "hero-title": { "type": "translate", "value": "caelesti.hero_title" },
+    "hero-subtitle": { "type": "translate", "value": "caelesti.hero_subtitle" },
+    "navbar-buttons:style": {
+      "background-color": "#dd4264"
+    },
+    "navbar-home": {"type": "translate", "value": "caelesti.navbar_home"},
+    "navbar-projects": {"type": "translate", "value": "caelesti.navbar_projects"},
+    "navbar-socials": {"type": "translate", "value": "caelesti.navbar_socials"},
+    "main-title": {"type": "translate", "value": "caelesti.main_title"},
+    "main-description": {"type": "translate", "value": "caelesti.main_description"},
+    "caelesti-description": {"type": "translate", "value": "caelesti.project_caelesti_description"},
+    "caelesti-lite-description": {"type": "translate", "value": "caelesti.project_caelesti_lite_description"},
+    "artibus-description": {"type": "translate", "value": "caelesti.project_artibus_description"},
+    "footer:style": {
+      "background-color": "#dd4264"
+    },
+    "footer-caption": {"type": "translate", "value": "global.footer_follow"}
   }
 }

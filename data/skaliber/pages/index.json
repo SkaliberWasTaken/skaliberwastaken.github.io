@@ -1,8 +1,4 @@
 {
-  "meta": {
-    "title": "Home | Skaliber.net"
-  },
-  "color_palette": "skaliber:index",
   "contents": {
     "hero:style": {
       "background-image": {"type": "local_image", "value": {"type": "uniform_random", "value": [
@@ -29,6 +25,6 @@
     "footer:style": {
       "background-color": "#009028"
     },
-    "footer-caption": {"type": "translate", "value": "index.footer_follow"}
+    "footer-caption": {"type": "translate", "value": "global.footer_follow"}
   }
 }

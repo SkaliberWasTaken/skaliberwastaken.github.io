@@ -1,5 +1,7 @@
 {
-  "index.page_title": "Home | Skaliber",
+  "global.footer_follow": "Follow Me On My Socials!",
+
+
   "index.hero_title": "SKALIBER",
   "index.hero_subtitle": "MINECRAFT ARTIST",
   "index.navbar_home": "Home",
@@ -23,5 +25,22 @@
   "index.project_artibus_description": { "type": "linebreak_list", "value": [
     "A datapack I've been working on since the dawn of time."
   ]},
-  "index.footer_follow": "Follow Me On My Socials!"
+
+  "caelesti.hero_title": "CAELESTI",
+  "caelesti.hero_subtitle": "BY SKALIBER",
+  "caelesti.navbar_home": "Home",
+  "caelesti.navbar_projects": "Projects",
+  "caelesti.navbar_socials": "Socials",
+  "caelesti.main_title": "CAELESTI",
+  "caelesti.main_description": { "type": "linebreak_list", "value": [
+    "Caelesti is amazing.",
+    "Caelesti is great.",
+    "Go download Caelesti,",
+    "or I'll steal your kneecaps.",
+    "",
+    "This is your final warning.",
+    "If you don't download Caelesti right this instant,",
+    "I will steal your kneecaps.",
+    "Go on. Do it."
+  ]}
 }
