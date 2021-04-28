@@ -13,64 +13,44 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../src/styles.css" />
   </head>
-  <!-- <style>
+  <style>
+    header, footer, a span { background-color: #dd4264; }
     header {
-      background-image: url("https://www.skaliber.net/src/gradients/caelesti.png");
-      background-color: #dd4264;
+      background-image: url(../../src/gradients/caelesti.png);
       background-size: 100% 100%;
-  	  image-rendering: pixelated;
     }
-  </style> -->
+  </style>
   <body>
-    <header class="w3-center shadow" tag="hero" id="home">
-      <div class="fade" tag="hero-transition">
+    <header class="w3-center shadow" id="home">
+      <div class="fade">
         <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);background-color:#00000064">
-          <h1 class="w3-hide-small w3-xxxlarge" tag="hero-title"></h1>
-          <h5 class="w3-hide-medium w3-hide-large" tag="hero-title"></h5>
-          <h4 class="w3-hide-small" tag="hero-subtitle"></h4>
+          <h1 class="w3-hide-small w3-xxxlarge">CAELESTI</h1>
+          <h5 class="w3-hide-medium w3-hide-large">CAELESTI</h5>
+          <h4 class="w3-hide-small">BY SKALIBER</h4>
         </div>
         <div class="w3-bar nav shadow">
           <a href="#home" class="button w3-bar-item">
-            <span tag="navbar-buttons"></span>
-            <text tag="navbar-home"></text>
+            <span></span>
+            <text>Home</text>
           </a>
-          <a href="#projects" class="button w3-bar-item">
-            <span tag="navbar-buttons"></span>
-            <text tag="navbar-projects"></text>
+          <a href="#download" class="button w3-bar-item">
+            <span></span>
+            <text>Download</text>
           </a>
           <a href="#socials" class="button w3-bar-item">
-            <span tag="navbar-buttons"></span>
-            <text tag="navbar-socials"></text>
+            <span></span>
+            <text>Socials</text>
           </a>
         </div>
       </div>
     </header>
 
-    <div class="w3-center w3-padding-16 w3-hide-large w3-hide-medium" style="background-color:e0e0e0;">
-      <div class="w3-bar w3-padding-large">
-        <a href="#home" class="button w3-bar-item">
-          <span></span>
-          <text>Home</text>
-        </a>
-        <a href="#projects" class="button w3-bar-item">
-          <span></span>
-          <text>Projects</text>
-        </a>
-        <a href="#socials" class="button w3-bar-item">
-          <span></span>
-          <text>Socials</text>
-        </a>
-      </div>
-    </div>
-
     <div class="main w3-content w3-container">
-      <div class="w3-hide-small" style="height:2em"></div>
-      <h3 class="w3-center">
-				WELCOME!
-			</h3>
+      <div style="height:2em"></div>
+      <h3 class="w3-center">CAELESTI</h3>
 			<div class="w3-padding-large">
 				<p>
-					Caelesti is amazing.<br>
+          Caelesti is amazing.<br>
           Caelesti is great.<br>
           Go download Caelesti,<br>
           or I'll steal your kneecaps.<br>
@@ -78,11 +58,11 @@
           This is your final warning.<br>
           If you don't download Caelesti right this instant,<br>
           I will steal your kneecaps.<br>
-          Go on. Do it.
+          Go on. Do it.<br>
         </p>
         <div class="w3-center w3-padding-16" style="background-color:e0e0e0;">
           <div class="w3-bar w3-padding-large">
-            <a href="https://www.curseforge.com/minecraft/texture-packs/caelesti/download/3126047" class="button w3-bar-item">
+            <a href="https://www.curseforge.com/minecraft/texture-packs/caelesti/" class="button w3-bar-item">
               <span></span>
               <text>Dowload on CurseForge</text>
             </a>
@@ -91,39 +71,29 @@
 			</div>
     </div>
 
-    <footer class="w3-center w3-padding-64" style="background-color: #009028; color: #ffffff" id="socials">
-			<div class="w3-xlarge w3-section w3-padding-large">
-        <a href="https://www.instagram.com/therealskaliber/" class="w3-hover-opacity" style="text-decoration: none;">
+    <footer class="w3-center w3-padding-64" style="color:#ffffff" id="socials">
+			<div class="w3-xlarge w3-section w3-padding-large socials">
+        <a href="https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ" class="w3-hover-opacity social" style="text-decoration: none;">
+          <i class="fa fa-youtube-play"></i>
+        </a>
+        <a href="https://www.curseforge.com/members/skaliber/projects" class="w3-hover-opacity social" style="text-decoration: none;">
+          <img src="src/curseforge.svg" width="32px"></i>
+        </a>
+        <a href="https://www.reddit.com/user/Skaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
+          <i class="fa fa-reddit-alien"></i>
+        </a>
+        <a href="https://www.instagram.com/therealskaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
 					<i class="fa fa-instagram"></i>
-        </a>&nbsp
-        <a href="https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ" class="w3-hover-opacity" style="text-decoration: none;">
-					<i class="fa fa-youtube-play"></i>
-        </a>&nbsp
-				<a href="https://www.reddit.com/user/Skaliber/" class="w3-hover-opacity" style="text-decoration: none;">
-					<i class="fa fa-reddit-alien"></i>
-        </a>&nbsp
-        <a href="https://twitter.com/skaliber2" class="w3-hover-opacity" style="text-decoration: none;">
+        </a>
+        <a href="https://twitter.com/skaliber2" class="w3-hover-opacity social" style="text-decoration: none;">
           <i class="fa fa-twitter"></i>
-        </a>&nbsp
-        <a href="https://www.curseforge.com/members/skaliber" class="w3-hover-opacity" style="text-decoration: none;">
-          <img src="https://www.curseforge.com/Content/2-0-7736-21295/Skins/CurseForge/images/anvil.svg" width="32px"></i>
         </a>
 			</div>
-			<p>
-				Follow Me On My Socials!
-			</p>
+			<p>Follow Me On My Socials!</p>
 		</footer>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="../../datapackish.js" charset="utf-8"></script>
-  <script defer>
-    perform({
-      "use_local": true,
-      "repo": "SkaliberWasTaken/skaliberwastaken.github.io",
-      "page_data": "skaliber:caelesti_project",
-      "lang_data": "skaliber:en_us"
-    });
-
+  <script>
     window.addEventListener("scroll", function() {
       if (window.scrollY > (window.innerHeight * 0.75) - 40) {
         $("header .fade").css({"background-color": hero_color + "ff"});
