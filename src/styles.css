@@ -75,6 +75,29 @@ header {
   transition: opacity 0s, width var(--time), padding-top var(--time);
 }
 
+code {
+  background-color: #e0e0e0;
+  color: #000000;
+  padding: 4px 8px;
+  margin-left: 1em;
+  border-radius: 4px;
+  display: inline-block;
+}
+code .fix { color: #ff0000; }
+code .new { color: #00a800; }
+code .dev {
+  padding: 0 4px;
+  margin: 4px;
+  display: block;
+  color: #00ff00;
+  box-shadow: 0 0 4px 4px #000000;
+  background: #000000;
+}
+.version {
+  font-size: 1.25em;
+  margin-left: 1em;
+}
+
 a.card {
   text-decoration: none;
   display: flex;
