@@ -75,6 +75,7 @@ header {
   transition: opacity 0s, width var(--time), padding-top var(--time);
 }
 
+
 code {
   background-color: #e0e0e0;
   color: #000000;
@@ -95,7 +96,13 @@ code .dev {
 }
 .version {
   font-size: 1.25em;
-  margin-left: 1em;
+} .version * {
+  margin-right: 0.5em;
+} .version i {
+  opacity: 0%;
+  transition: opacity 0.35s;
+} .version:hover i {
+  opacity: 100%;
 }
 
 a.card {
@@ -103,6 +110,7 @@ a.card {
   display: flex;
   flex-direction: column;
   background-color: #009028;
+  color: #ffffff;
   overflow: auto;
   border-radius: 4px;
   padding: 2em;
