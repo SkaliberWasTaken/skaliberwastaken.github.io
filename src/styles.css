@@ -1,5 +1,5 @@
 html { scroll-behavior: smooth; }
-body { background-color: #ffffff; padding: 0;}
+body { font-family: "Noto Sans", sans-serif; background-color: #ffffff; padding: 0;}
 
 .shadow {
   box-shadow:
@@ -76,17 +76,17 @@ header {
 }
 
 
-code {
-  background-color: #e0e0e0;
+ul { list-style: none;}
+ul li::before {
+  content: "\2022";
   color: #000000;
-  padding: 4px 8px;
-  margin-left: 1em;
-  border-radius: 4px;
   display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
-code .fix { color: #ff0000; }
-code .new { color: #00a800; }
-code .dev {
+ul.features .fix { color: #ff0000; }
+ul.features .new { color: #00a800; }
+ul.features .dev {
   padding: 0 4px;
   margin: 4px;
   display: block;
@@ -94,16 +94,10 @@ code .dev {
   box-shadow: 0 0 4px 4px #000000;
   background: #000000;
 }
-.version {
-  font-size: 1.25em;
-} .version * {
-  margin-right: 0.5em;
-} .version i {
-  opacity: 0%;
-  transition: opacity 0.35s;
-} .version:hover i {
-  opacity: 100%;
-}
+.version { font-size: 1.25em; }
+.version * { margin-right: 0.5em; }
+.version i { opacity: 0%; transition: opacity 0.35s; }
+.version:hover i { opacity: 100%; }
 
 a.card {
   text-decoration: none;
