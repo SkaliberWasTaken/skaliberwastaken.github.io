@@ -13,17 +13,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans" />
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="src/styles.css" />
-    <style>
-      header, footer, a span { background-color: #009028; }
-    </style>
   </head>
-  <body>
+  <body class="main">
     <!-- hero -->
     <header class="w3-center shadow" id="home">
       <div class="fade" tag="hero-transition">
         <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);background-color:#00000064">
           <h1 class="w3-hide-small w3-xxxlarge">SKALIBER</h1>
-          <h5 class="w3-hide-medium w3-hide-large">SKALIBER</h5>
+          <h3 class="w3-hide-medium w3-hide-large">SKALIBER</h5>
           <h4 class="w3-hide-small">MINECRAFT ARTIST</h4>
         </div>
         <div class="w3-bar nav shadow">
@@ -44,8 +41,8 @@
     </header>
 
     <div class="main w3-content w3-container">
-      <div style="height:2em"></div>
-      <h3 class="w3-center">WELCOME!</h3>
+      <div style="height:3em"></div>
+      <h2 class="w3-center">WELCOME!</h3>
 			<div class="w3-padding-large">
 				<p>
           I am the creator of Caelesti, a work-in-progress Minecraft resource pack, fuelled by the additional creative capabilities provided by Optifine.<br>
@@ -56,11 +53,16 @@
       <div class="w3-padding-large" id="projects">
         <a href="projects/caelesti/" class="card shadow w3-row">
           <img class="w3-col" src="src/titles/caelesti.png" alt="Caelesti Logo">
-          <p class="w3-col">My main resource pack.<br>(Requires OptiFine)</p>
+          <p class="w3-col">
+            My main resource pack.<br>
+            (Requires OptiFine)
+          </p>
         </a>
         <a href="projects/artibus/" class="card shadow w3-row">
           <img class="w3-col" src="src/titles/artibus.png" alt="Artibus Logo">
-          <p class="w3-col">A datapack I've been working on since the dawn of time.</p>
+          <p class="w3-col">
+            A datapack I've been working on since the dawn of time.
+          </p>
         </a>
       </div>
     </div>
@@ -71,7 +73,7 @@
           <i class="fa fa-youtube-play"></i>
         </a>
         <a href="https://www.curseforge.com/members/skaliber/projects" class="w3-hover-opacity social" style="text-decoration: none;">
-          <img src="../../src/curseforge.svg" width="32px"></i>
+          <img src="src/curseforge.svg" width="32px"></i>
         </a>
         <a href="https://www.reddit.com/user/Skaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
           <i class="fa fa-reddit-alien"></i>
@@ -83,20 +85,35 @@
           <i class="fa fa-twitter"></i>
         </a>
 			</div>
-			<p>Follow Me On My Socials!</p>
+			<p>Follow me on my socials!</p>
 		</footer>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-    var hero_images = [
-      "src/home_heroes/forest.png",
-      "src/home_heroes/hill.png",
-      "src/home_heroes/swamp.png",
-      "src/home_heroes/warped.png",
-    ];
+    var hero_images = {
+      "default": "light",
+      "dark": [
+        "src/home_heroes/warped.png"
+      ],
+      "light": [
+        "src/home_heroes/forest.png",
+        "src/home_heroes/hill.png",
+        "src/home_heroes/swamp.png"
+      ]
+    };
     function f(val) { return Math.floor(val) }
     function rnd(val) { return Math.random() * val }
-    $("header").css("background-image", `url(${hero_images[f(rnd(hero_images.length))]})`);
+    function try_default(key, object) {
+      if (key == null) return object.default;
+      if (key in object) return key;
+      return object.default;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    var theme = try_default(urlParams.get("theme"), hero_images);
+    // var theme = "dark";
+    $("body").toggleClass(theme);
+    $("header").css("background-image", `url(${hero_images[theme][f(rnd(hero_images[theme].length))]})`);
 
     function rgb2hex(rgb) {
       rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);

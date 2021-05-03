@@ -1,5 +1,22 @@
 html { scroll-behavior: smooth; }
-body { font-family: "Noto Sans", sans-serif; background-color: #ffffff; padding: 0;}
+body {
+  --background: #ffffff;
+  --text: #000000;
+  font-family: "Noto Sans", sans-serif;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text);
+}
+body.dark {
+  --background: #111C14;
+  --text: #ffffff;
+}
+body.main.light { --primary: #009028; --idle: #ffffff; --active: #009028; }
+body.caelesti.light { --primary: #dd4264; --idle: #ffffff; --active: #dd4264; }
+body.artibus.light { --primary: #ff6c13; --idle: #ffffff; --active: #ff6c13; }
+body.main.dark { --primary: #202B23; --idle: #202B23; --active: #009028; }
+body.caelesti.dark { --primary: #232323; --idle: #232323; --active: #dd4264; }
+body.artibus.dark { --primary: #232323; --idle: #232323; --active: #ff6c13; }
 
 .shadow {
   box-shadow:
@@ -10,6 +27,7 @@ body { font-family: "Noto Sans", sans-serif; background-color: #ffffff; padding:
 }
 
 header {
+  background-color: var(--primary);
   z-index: 1;
   height: 75vh;
   background-position: center;
@@ -20,16 +38,18 @@ header {
   position: sticky;
   top: calc(-75vh + 40px);
 } header .fade {
+  background-color: rgba(0, 0, 0, 0);
   height: 100%;
-  background-color: #00000000;
   transition: background-color 0.2s ease-in-out;
+} footer {
+  background-color: var(--primary);
 }
 
 .nav {
   border-radius: 4px;
   border-style: solid;
   border-width: 2px;
-  border-color: #ffffff;
+  border-color: var(--background);
   position: relative;
   -webkit-backface-visibility: hidden;
   top: calc(75vh - 20px);
@@ -37,7 +57,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--idle);
 }
 
 .button {
@@ -45,14 +65,14 @@ header {
   --time: 0.7s;
   position: relative;
   display: block;
-  background: #ffffff;
   overflow: hidden;
   text-decoration: none;
 } .button text {
   position: relative;
-  color: #000000;
+  color: var(--text);
   transition: color var(--time);
 } .button span {
+  background-color: var(--active);
   --width: 50%;
   top: 50%; left: 50%;
   opacity: 0;
@@ -74,7 +94,6 @@ header {
   padding-top: calc(var(--width) * 2.25);
   transition: opacity 0s, width var(--time), padding-top var(--time);
 }
-
 
 ul { list-style: none;}
 ul li::before {
@@ -103,8 +122,8 @@ a.card {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  background-color: #009028;
-  color: #ffffff;
+  background-color: var(--primary);
+  color: var(--text);
   overflow: auto;
   border-radius: 4px;
   padding: 2em;
@@ -119,7 +138,7 @@ a.card {
   image-rendering: pixelated;
   filter: drop-shadow(0 0 16px #ffffff32) drop-shadow(0 0 4px #ffffff64);
 } a.card text {
-  color: #ffffff;
+  color: var(--text);
   padding: 2% 2% 2% 4%;
 }
 
