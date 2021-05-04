@@ -119,7 +119,6 @@
     function toggle(theme) { if (theme == "light") return "dark"; return "light" }
 
     var theme = try_default(Cookies.get("theme"), hero_images);
-    // var theme = "dark";
     $("body").toggleClass(theme);
     $("header").css("background-image", `url(${hero_images[theme][f(rnd(hero_images[theme].length))]})`);
 

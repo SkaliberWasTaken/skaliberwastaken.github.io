@@ -5,13 +5,13 @@
   		Artibus | Skaliber
   	</title>
   	<base href="https://www.skaliber.net/projects/artibus/">
-    <meta charset="UTF-8">
+  	<meta charset="UTF-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<meta name="description" content="Skaliber's Official Artibus Project Page <li>changelog for each of the versions, and downloads.">
+  	<meta name="description" content="Skaliber's Official Artibus Project Page - changelog for each of the versions, and downloads.">
   	<link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/50083260?s=64" />
   	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../src/styles.css" />
   </head>
   <style>
@@ -21,12 +21,14 @@
     }
   </style>
   <body class="artibus">
+    <!-- hero -->
+    <i class="dark-toggle shadow fa fa-adjust" id="dark-toggle"></i>
     <header class="w3-center shadow" id="home">
-      <div class="fade">
+      <div class="fade" tag="hero-transition">
         <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);background-color:#00000064">
           <h1 class="w3-hide-small w3-xxxlarge">ARTIBUS</h1>
-          <h5 class="w3-hide-medium w3-hide-large">ARTIBUS</h5>
-          <h4 class="w3-hide-small">BY SKALIBER</h4>
+          <h3 class="w3-hide-medium w3-hide-large">ARTIBUS</h5>
+          <h4 class="w3-hide-small">MADE BY SKALIBER</h4>
         </div>
         <div class="w3-bar nav shadow">
           <a href="https://www.skaliber.net" class="button w3-bar-item">
@@ -150,30 +152,50 @@
           <i class="fa fa-twitter"></i>
         </a>
 			</div>
-			<p>Follow Me On My Socials!</p>
+			<p>Follow me on my socials!</p>
 		</footer>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
   <script>
-    function rgb2hex(rgb) {
-      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
-    }
-    var hexDigits = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
-    function hex(x) { return isNaN(x) ? "00" : hexDigits[(x <li>x % 16) / 16] + hexDigits[x % 16] }
+    var hero_images = {
+      "default": "light",
+      "dark": [],
+      "light": []
+    };
+    // function f(val) { return Math.floor(val); }
+    // function rnd(val) { return Math.random() * val; }
     function try_default(key, object) {
-      if (key == null) return object.default;
+      key = key ?? object.default;
       if (key in object) return key;
       return object.default;
     }
+    function rgb2hex(rgb) {
+      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+    var hexDigits = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+    function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16] }
+    function toggle(theme) { if (theme == "light") return "dark"; return "light" }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    var theme = try_default(urlParams.get("theme"), hero_images);
+    var theme = try_default(Cookies.get("theme"), hero_images);
     $("body").toggleClass(theme);
+    // $("header").css("background-image", `url(${hero_images[theme][f(rnd(hero_images[theme].length))]})`);
+
+    $("#dark-toggle").on("click", () => {
+      Cookies.set("theme", toggle(Cookies.get("theme")));
+      $("body").toggleClass("dark");
+      hero_color = rgb2hex($("header").css("background-color"));
+      if (window.scrollY > (window.innerHeight * 0.75) - 40) {
+        $("header .fade").css({"background-color": hero_color + "ff"});
+      } else {
+        $("header .fade").css({"background-color": hero_color + "00"});
+      }
+    });
 
     var hero_color = rgb2hex($("header").css("background-color"));
     window.addEventListener("scroll", () => {
-      if (window.scrollY > (window.innerHeight * 0.75) <li>40) {
+      if (window.scrollY > (window.innerHeight * 0.75) - 40) {
         $("header .fade").css({"background-color": hero_color + "ff"});
       } else {
         $("header .fade").css({"background-color": hero_color + "00"});
