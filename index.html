@@ -16,6 +16,7 @@
   </head>
   <body class="main">
     <!-- hero -->
+    <i class="dark-toggle shadow fa fa-adjust" id="dark-toggle"></i>
     <header class="w3-center shadow" id="home">
       <div class="fade" tag="hero-transition">
         <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);background-color:#00000064">
@@ -89,6 +90,7 @@
 		</footer>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
   <script>
     var hero_images = {
       "default": "light",
@@ -101,26 +103,36 @@
         "src/home_heroes/swamp.png"
       ]
     };
-    function f(val) { return Math.floor(val) }
-    function rnd(val) { return Math.random() * val }
+    function f(val) { return Math.floor(val); }
+    function rnd(val) { return Math.random() * val; }
     function try_default(key, object) {
-      if (key == null) return object.default;
+      key = key ?? object.default;
       if (key in object) return key;
       return object.default;
     }
+    function rgb2hex(rgb) {
+      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+    var hexDigits = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+    function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16] }
+    function toggle(theme) { if (theme == "light") return "dark"; return "light" }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    var theme = try_default(urlParams.get("theme"), hero_images);
+    var theme = try_default(Cookies.get("theme"), hero_images);
     // var theme = "dark";
     $("body").toggleClass(theme);
     $("header").css("background-image", `url(${hero_images[theme][f(rnd(hero_images[theme].length))]})`);
 
-    function rgb2hex(rgb) {
-      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
-    }
-    var hexDigits = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
-    function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16] }
+    $("#dark-toggle").on("click", () => {
+      Cookies.set("theme", toggle(Cookies.get("theme")));
+      $("body").toggleClass("dark");
+      hero_color = rgb2hex($("header").css("background-color"));
+      if (window.scrollY > (window.innerHeight * 0.75) - 40) {
+        $("header .fade").css({"background-color": hero_color + "ff"});
+      } else {
+        $("header .fade").css({"background-color": hero_color + "00"});
+      }
+    });
 
     var hero_color = rgb2hex($("header").css("background-color"));
     window.addEventListener("scroll", () => {

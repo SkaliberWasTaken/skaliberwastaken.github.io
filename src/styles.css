@@ -1,22 +1,42 @@
 html { scroll-behavior: smooth; }
 body {
-  --background: #ffffff;
   --text: #000000;
   font-family: "Noto Sans", sans-serif;
   padding: 0;
   background-color: var(--background);
   color: var(--text);
+  transition: background-color 0.5s, color 0.5s;
 }
 body.dark {
-  --background: #111C14;
+  --background: #121212;
   --text: #ffffff;
 }
-body.main.light { --primary: #009028; --idle: #ffffff; --active: #009028; }
-body.caelesti.light { --primary: #dd4264; --idle: #ffffff; --active: #dd4264; }
-body.artibus.light { --primary: #ff6c13; --idle: #ffffff; --active: #ff6c13; }
-body.main.dark { --primary: #202B23; --idle: #202B23; --active: #009028; }
-body.caelesti.dark { --primary: #232323; --idle: #232323; --active: #dd4264; }
-body.artibus.dark { --primary: #232323; --idle: #232323; --active: #ff6c13; }
+body.main.light { --background: #ffffff; --primary: #009028; --idle: #ffffff; --active: #009028; }
+body.artibus.light { --background: #ffffff; --primary: #ff6c13; --idle: #ffffff; --active: #ff6c13; }
+body.caelesti.light { --background: #ffffff; --primary: #dd4264; --idle: #ffffff; --active: #dd4264; }
+body.main.dark { --background: #111C14; --primary: #202B23; --idle: #202B23; --active: #009028; }
+body.artibus.dark { --background: #251912; --primary: #251912; --idle: #121925; --active: #ff6c13; }
+body.caelesti.dark { --background: #111C14; --primary: #232323; --idle: #dd426414; --active: #dd4264; }
+
+.dark-toggle {
+  width: 2em; height: 2em;
+  margin: 16px;
+  font-size: 2em;
+  position: fixed;
+  bottom: 0; right: 0;
+  z-index: 2;
+  color: var(--text);
+  background-color: var(--idle);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+} .dark-toggle:hover {
+  color: var(--active);
+  background-color: var(--text);
+}
 
 .shadow {
   box-shadow:
@@ -37,12 +57,14 @@ header {
   -webkit-position: sticky;
   position: sticky;
   top: calc(-75vh + 40px);
+  /* transition: background-color 0.5s, color 0.5s; */
 } header .fade {
   background-color: rgba(0, 0, 0, 0);
   height: 100%;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.5s;
 } footer {
   background-color: var(--primary);
+  transition: background-color 0.5s, color 0.5s;
 }
 
 .nav {
@@ -58,6 +80,7 @@ header {
   flex-direction: row;
   justify-content: center;
   background-color: var(--idle);
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
 }
 
 .button {
@@ -70,7 +93,7 @@ header {
 } .button text {
   position: relative;
   color: var(--text);
-  transition: color var(--time);
+  transition: color 0.5s;
 } .button span {
   background-color: var(--active);
   --width: 50%;
@@ -98,13 +121,14 @@ header {
 ul { list-style: none;}
 ul li::before {
   content: "\2022";
-  color: #000000;
+  color: var(--text);
   display: inline-block;
   width: 1em;
   margin-left: -1em;
+  transition: color 0.5s;
 }
 ul.features .fix { color: #ff0000; }
-ul.features .new { color: #00a800; }
+ul.features .new { color: #ff6400; }
 ul.features .dev {
   padding: 0 4px;
   margin: 4px;
@@ -130,6 +154,7 @@ a.card {
   clear: both;
   width: 100%;
   margin: 2% 0;
+  transition: background-color 0.5s, color 0.5s;
 } a.card img {
   align-self: center;
   width: 75%;
@@ -140,6 +165,7 @@ a.card {
 } a.card text {
   color: var(--text);
   padding: 2% 2% 2% 4%;
+  transition: color 0.5s;
 }
 
 .socials {
