@@ -14,7 +14,7 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="src/styles.css" />
   </head>
-  <body class="main">
+  <body class="main light">
     <!-- hero -->
     <i class="dark-toggle shadow fa fa-adjust" id="dark-toggle"></i>
     <header class="w3-center shadow" id="home">
@@ -106,7 +106,7 @@
     function f(val) { return Math.floor(val); }
     function rnd(val) { return Math.random() * val; }
     function try_default(key, object) {
-      key = key ?? object.default;
+      //key = key ?? object.default;
       if (key in object) return key;
       return object.default;
     }
@@ -115,16 +115,24 @@
       return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
     }
     var hexDigits = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
-    function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16] }
-    function toggle(theme) { if (theme == "light") return "dark"; return "light" }
+    function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16]; }
+    function toggle(theme) { if (theme == "light") return "dark"; return "light"; }
+    function set_theme(theme) {
+    	var before = $("body").attr("class").split(/\s+/);
+      if (!before.includes(theme)) {
+      	$("body").removeClass(toggle(theme));
+        $("body").addClass(theme);
+      }
+    }
 
     var theme = try_default(Cookies.get("theme"), hero_images);
-    $("body").toggleClass(theme);
+    set_theme(theme);
     $("header").css("background-image", `url(${hero_images[theme][f(rnd(hero_images[theme].length))]})`);
 
     $("#dark-toggle").on("click", () => {
-      Cookies.set("theme", toggle(Cookies.get("theme")));
-      $("body").toggleClass("dark");
+      var theme = toggle(try_default(Cookies.get("theme"), hero_images));
+      set_theme(theme);
+      Cookies.set("theme", theme);
       hero_color = rgb2hex($("header").css("background-color"));
       if (window.scrollY > (window.innerHeight * 0.75) - 40) {
         $("header .fade").css({"background-color": hero_color + "ff"});

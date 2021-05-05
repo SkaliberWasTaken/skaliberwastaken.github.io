@@ -1,5 +1,6 @@
 html { scroll-behavior: smooth; }
 body {
+  --background: #ffffff;
   --text: #000000;
   font-family: "Noto Sans", sans-serif;
   padding: 0;
