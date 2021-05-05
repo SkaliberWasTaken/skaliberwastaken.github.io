@@ -17,7 +17,7 @@ body.artibus.light { --background: #ffffff; --primary: #ff6c13; --idle: #ffffff;
 body.caelesti.light { --background: #ffffff; --primary: #dd4264; --idle: #ffffff; --active: #dd4264; }
 body.main.dark { --background: #111C14; --primary: #202B23; --idle: #202B23; --active: #009028; }
 body.artibus.dark { --background: #251912; --primary: #342821; --idle: #342821; --active: #ff6c13; }
-body.caelesti.dark { --background: #111C14; --primary: #232323; --idle: #dd426414; --active: #dd4264; }
+body.caelesti.dark { --background: #221619; --primary: #312528; --idle: #312528; --active: #dd4264; }
 
 .dark-toggle {
   width: 2em; height: 2em;

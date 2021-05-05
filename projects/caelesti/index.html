@@ -4,10 +4,10 @@
     <title>
   		Caelesti | Skaliber
   	</title>
-  	<base href="https://www.skaliber.net">
-    <meta charset="UTF-8">
+  	<base href="https://www.skaliber.net/projects/caelesti/">
+  	<meta charset="UTF-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<meta name="description" content="Skaliber's Official Caelesti Project Page, no kneecaps were harmed during the making of this page.">
+  	<meta name="description" content="Skaliber's Official Caelesti Project Page - changelog for each of the versions, and downloads.">
   	<link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/50083260?s=64" />
   	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans" />
@@ -15,55 +15,68 @@
     <link rel="stylesheet" href="../../src/styles.css" />
   </head>
   <style>
-    header, footer, a span { background-color: #dd4264; }
     header {
       background-image: url(../../src/gradients/caelesti.png);
       background-size: 100% 100%;
     }
   </style>
-  <body>
+  <body class="caelesti light">
+    <i class="dark-toggle shadow fa fa-adjust" id="dark-toggle"></i>
     <header class="w3-center shadow" id="home">
       <div class="fade">
         <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);background-color:#00000064">
           <h1 class="w3-hide-small w3-xxxlarge">CAELESTI</h1>
-          <h5 class="w3-hide-medium w3-hide-large">CAELESTI</h5>
-          <h4 class="w3-hide-small">BY SKALIBER</h4>
+          <h3 class="w3-hide-medium w3-hide-large">CAELESTI</h5>
+          <h4 class="w3-hide-small">MADE BY SKALIBER</h4>
         </div>
         <div class="w3-bar nav shadow">
-          <a href="#home" class="button w3-bar-item">
+          <a href="https://www.skaliber.net" class="button w3-bar-item">
             <span></span>
             <text>Home</text>
           </a>
-          <a href="#download" class="button w3-bar-item">
+          <a href="https://www.curseforge.com/minecraft/texture-packs/caelesti" class="button w3-bar-item">
             <span></span>
             <text>Download</text>
           </a>
-          <a href="#socials" class="button w3-bar-item">
+          <a href="#changelog" class="button w3-bar-item">
             <span></span>
-            <text>Socials</text>
+            <text>Changes</text>
           </a>
         </div>
       </div>
     </header>
 
     <div class="main w3-content w3-container">
-      <div style="height:2em"></div>
-      <h3 class="w3-center">CAELESTI</h3>
+      <div style="height:3em"></div>
+      <h2 class="w3-center">CAELESTI</h3>
 			<div class="w3-padding-large">
-				<p>
-          Caelesti is amazing.<br>
-          Caelesti is great.<br>
-          Go download Caelesti,<br>
-          or I'll steal your kneecaps.<br>
+        <p>
+          Caelesti is an advanced vanilla+ pack which takes advantage of many hidden features that are both vanilla, and MCPatcher reliant to completely change the way that Minecraft is experienced. The pack has a huge focus on custom flora, and fauna, and attempts to improve the many inconsistencies and flaws of the original look of Minecraft.<br>
           <br>
-          This is your final warning.<br>
-          If you don't download Caelesti right this instant,<br>
-          I will steal your kneecaps.<br>
-          Go on. Do it.<br>
+          Many of the biomes you'll find in your world will look completely different due to the complex biome specific colourmaps that are used in Caelesti, as well as unique biome based textures for complex models and custom entities.<br>
+          <br>
+          Caelesti is an always-in-development project, with new techniques constantly being made available for MCPatcher, and a whole host of features introduced by Mojang with every update that can be changed and improved. To stay up to date with the development of Caelesti, you can subscribe to <a href="https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ/">My YouTube Channel</a> where I frequently post updates to the packs features.
         </p>
+
         <div class="w3-center w3-padding-16" style="background-color:e0e0e0;">
           <div class="w3-bar w3-padding-large">
-            <a href="https://www.curseforge.com/minecraft/texture-packs/caelesti/" class="button w3-bar-item">
+            <a href="https://www.curseforge.com/minecraft/texture-packs/caelesti" class="button w3-bar-item" id="download">
+              <span></span>
+              <text>Dowload on CurseForge</text>
+            </a>
+          </div>
+        </div>
+        <h4 id="changelog">Changelog</h4>
+        <a class="version"><text>vWhatever-The-Most_recent-One-Is</text><i class="fa fa-sticky-note-o"></i></a>
+        <ul class="features">
+          <span class="new">
+            <li>A bunch of stuff</li>
+          </span>
+          <li>¯\_(ツ)_/¯</li>
+        </ul>
+        <div class="w3-center w3-padding-16" style="background-color:e0e0e0;">
+          <div class="w3-bar w3-padding-large">
+            <a href="https://www.curseforge.com/minecraft/texture-packs/caelesti" class="button w3-bar-item" id="download">
               <span></span>
               <text>Dowload on CurseForge</text>
             </a>
@@ -78,7 +91,7 @@
           <i class="fa fa-youtube-play"></i>
         </a>
         <a href="https://www.curseforge.com/members/skaliber/projects" class="w3-hover-opacity social" style="text-decoration: none;">
-          <img src="src/curseforge.svg" width="32px"></i>
+          <img src="../../src/curseforge.svg" width="32px"></i>
         </a>
         <a href="https://www.reddit.com/user/Skaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
           <i class="fa fa-reddit-alien"></i>
@@ -90,12 +103,57 @@
           <i class="fa fa-twitter"></i>
         </a>
 			</div>
-			<p>Follow Me On My Socials!</p>
+			<p>Follow me on my socials!</p>
 		</footer>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
   <script>
-    window.addEventListener("scroll", function() {
+    var hero_images = {
+      "default": "light",
+      "dark": [],
+      "light": []
+    };
+    function f(val) { return Math.floor(val); }
+    function rnd(val) { return Math.random() * val; }
+    function try_default(key, object) {
+      if (key == undefined || key == null) return object.default;
+      if (key in object) return key;
+      return object.default;
+    }
+    function rgb2hex(rgb) {
+      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+    var hexDigits = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+    function hex(x) { return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16]; }
+    function toggle(theme) { if (theme == "light") return "dark"; return "light"; }
+    function set_theme(theme) {
+    	var before = $("body").attr("class").split(/\s+/);
+      if (!before.includes(theme)) {
+      	$("body").removeClass(toggle(theme));
+        $("body").addClass(theme);
+      }
+    }
+
+    var theme = try_default(Cookies.get("theme"), hero_images);
+    set_theme(theme);
+    // $("header").css("background-image", `url(${hero_images[theme][f(rnd(hero_images[theme].length))]})`);
+
+    $("#dark-toggle").on("click", () => {
+      var theme = toggle(try_default(Cookies.get("theme"), hero_images));
+      set_theme(theme);
+      Cookies.set("theme", theme);
+      hero_color = rgb2hex($("header").css("background-color"));
+      if (window.scrollY > (window.innerHeight * 0.75) - 40) {
+        $("header .fade").css({"background-color": hero_color + "ff"});
+      } else {
+        $("header .fade").css({"background-color": hero_color + "00"});
+      }
+    });
+
+    var hero_color = rgb2hex($("header").css("background-color"));
+    window.addEventListener("scroll", () => {
       if (window.scrollY > (window.innerHeight * 0.75) - 40) {
         $("header .fade").css({"background-color": hero_color + "ff"});
       } else {

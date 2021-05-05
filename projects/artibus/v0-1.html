@@ -142,7 +142,7 @@
     function f(val) { return Math.floor(val); }
     function rnd(val) { return Math.random() * val; }
     function try_default(key, object) {
-      //key = key ?? object.default;
+      if (key == undefined || key == null) return object.default;
       if (key in object) return key;
       return object.default;
     }
