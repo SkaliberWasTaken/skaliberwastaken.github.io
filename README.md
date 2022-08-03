@@ -18,4 +18,6 @@ A website designed to make Skalibers projects easily accesible.
 
 * **Chroma** - *Caelesti Icons I think, honestly idk there's people claiming their helping and idk what they even do smh*
 
+* **Magnogen** - *Not much tbh just the rework* - [Mag's Website](https://magnogen.net)
+
 See also the list of [contributors](https://github.com/SkaliberWasTaken/SkaliberWasTaken.github.io/contributors) who participated in this project.

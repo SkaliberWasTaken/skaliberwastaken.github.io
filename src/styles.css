@@ -148,7 +148,7 @@ a.card {
   display: flex;
   flex-direction: column;
   background-color: var(--primary);
-  color: var(--text);
+  color: #fff;
   overflow: auto;
   border-radius: 4px;
   padding: 2em;
@@ -158,13 +158,13 @@ a.card {
   transition: background-color 0.5s, color 0.5s;
 } a.card img {
   align-self: center;
-  width: 75%;
-  max-width: 32em;
+  height: 6em;
+  width: auto;
   padding: 2%;
   image-rendering: pixelated;
   filter: drop-shadow(0 0 16px #ffffff32) drop-shadow(0 0 4px #ffffff64);
 } a.card text {
-  color: var(--text);
+  color: #fff;
   padding: 2% 2% 2% 4%;
   transition: color 0.5s;
 }
