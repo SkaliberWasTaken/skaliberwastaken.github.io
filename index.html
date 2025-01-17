@@ -1,165 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Home | Skaliber
-    </title>
-    <base href="https://www.skaliber.net">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Skaliber's Official Website - Home of Caelesti, Artibus, and many more projects!">
-    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/50083260?s=64" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="src/styles.css" />
-  </head>
-  <body class="main light">
-    <!-- hero -->
-    <i class="dark-toggle shadow fa fa-adjust" id="dark-toggle"></i>
-    <header class="w3-center shadow" id="home">
-      <div class="fade" tag="hero-transition">
-        <div class="w3-display-middle w3-padding-large w3-border w3-round w3-wide w3-text-light-grey" style="backdrop-filter: blur(2px);background-color:#00000064">
-          <h1 class="w3-hide-small w3-xxxlarge">SKALIBER</h1>
-          <h3 class="w3-hide-medium w3-hide-large">SKALIBER</h3>
-          <h4 class="w3-hide-small">MINECRAFT ARTIST</h4>
-        </div>
-        <div class="w3-bar nav shadow">
-          <a href="#home" class="button w3-bar-item">
-            <span></span>
-            <text>Home</text>
-          </a>
-          <a href="#projects" class="button w3-bar-item">
-            <span></span>
-            <text>Projects</text>
-          </a>
-          <a href="#socials" class="button w3-bar-item">
-            <span></span>
-            <text>Socials</text>
-          </a>
-        </div>
-      </div>
-    </header>
+<html lang="en">
 
-    <div class="main w3-content w3-container">
-      <div style="height:3em"></div>
-      <h2 class="w3-center">WELCOME!</h2>
-      <div class="w3-padding-large">
-        <p>
-          I am the creator of Caelesti, a work-in-progress Minecraft resource pack, fuelled by the additional creative capabilities provided by Optifine.<br>
-          I also work on a number of datapacks, which also make use of niche features within Optifine to add new content to Minecraft.<br>
-          Feel free to poke around my website, and be sure to have fun!
-        </p>
-     </div>
-      <div class="w3-padding-large" id="projects">
-        <a href="projects/caelesti/" class="card shadow w3-row">
-          <img class="w3-col" src="src/titles/caelesti.png" alt="Caelesti Logo">
-          <p class="w3-col">
-            My main resource pack.<br>
-            (Requires OptiFine)
-          </p>
-        </a>
-        <a href="projects/artibus/" class="card shadow w3-row">
-          <img class="w3-col" src="src/titles/artibus.png" alt="Artibus Logo">
-          <p class="w3-col">
-            A datapack I've been working on since the dawn of time.
-          </p>
-        </a>
-        <a href="projects/pack-it-yourself/" class="card shadow w3-row">
-          <img class="w3-col" src="src/titles/piy.png" alt="PIY Logo">
-          <p class="w3-col">
-            Want to learn how to make your own resource packs? I've got you covered.<br>
-            <br>
-            <span style="color:#f88">note: under construction</span>
-          </p>
-        </a>
-      </div>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Skaliber's Official Website - Home of Caelesti, Artibus, and many more projects!">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/50083260?s=64" />
+</head>
+
+<body>
+  <header>
+    <div class="padded">
+      <h1>Skaliber</h1>
+      <span id="tagline">Minecraft Artist</span>
     </div>
-
-    <footer class="w3-center w3-padding-64" style="color:#ffffff" id="socials">
-      <div class="w3-xlarge w3-section w3-padding-large socials">
-        <a href="https://www.youtube.com/channel/UCZqcl6IU1nCdHFp7GsNTwZQ" class="w3-hover-opacity social" style="text-decoration: none;">
-          <i class="fa fa-youtube-play"></i>
-        </a>
-        <a href="https://www.curseforge.com/members/skaliber/projects" class="w3-hover-opacity social" style="text-decoration: none;">
-          <img src="src/curseforge.svg" width="32px"></i>
-        </a>
-        <a href="https://www.reddit.com/user/Skaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
-          <i class="fa fa-reddit-alien"></i>
-        </a>
-        <a href="https://www.instagram.com/therealskaliber/" class="w3-hover-opacity social" style="text-decoration: none;">
-          <i class="fa fa-instagram"></i>
-        </a>
-        <a href="https://twitter.com/skaliber2" class="w3-hover-opacity social" style="text-decoration: none;">
-          <i class="fa fa-twitter"></i>
-        </a>
+  </header>
+  <main class="padded">
+    <section>
+      <img class="nn" src="https://www.skaliber.net/src/thumbs/caelesti.png">
+      <div>
+        <h2>Caelesti</h2>
+        <p>
+          An advanced resource pack, taking advantage of many hidden features.
+        </p>
+        <p>
+          A huge focus on custom flora, and fauna, and improvements on the original look of Minecraft.
+          <a href="https://www.skaliber.net/caelesti">All Features</a>
+        </p>
+        <a href="https://www.curseforge.com/minecraft/texture-packs/caelesti" class="button caelesti">Curseforge</a>
       </div>
-      <p>Follow me on my socials</p>
-    </footer>
-  </body>
-<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-  <script>
-    var hero_images = {
-      "default": "light",
-      "dark": [
-        "src/home_heroes/warped.png",
-        "src/home_heroes/crimson.png",
-        "src/home_heroes/basalt.png",
-        "src/home_heroes/deltas.png",
-        "src/home_heroes/strider.png"
-      ],
-      "light": [
-        "src/home_heroes/forest.png",
-        "src/home_heroes/hill.png",
-        "src/home_heroes/swamp.png"
-      ]
-    };
-    const $ = (query) => document.querySelector(query);
-    const hexDigits = '0123456789abcdef';
-    const hex = x => isNaN(x) ? "00" : hexDigits[(x - (x & 15)) >> 4] + hexDigits[x & 15];
-    const toggle = theme => theme == "light" ? "dark" : "light";
-    function rnd(val) { return Math.random() * val; }
-    function try_default(key, object) {
-      if (key == undefined || key == null) return object.default;
-      if (key in object) return key;
-      return object.default;
-    }
-    function rgb2hex(rgb) {
-      const matched = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-      return "#" + hex(matched[1]) + hex(matched[2]) + hex(matched[3]);
-    }
-    function set_theme(theme) {
-      var before = $("body").getAttribute("class").split(/\s+/);
-      if (!before.includes(theme)) {
-        $("body").classList.remove(toggle(theme));
-        $("body").classList.add(theme);
-      }
-    }
+    </section>
+    <section>
+      <img class="nn" src="https://www.skaliber.net/src/thumbs/artibus.png">
+      <div>
+        <h2>Artibus</h2>
+        <p>
+          A work in progress datapack aiming to enhance your Minecraft experience.
+        </p>
+        <p>
+          Recipes, complementary mechanics, mob customisation, dimensions, custom world generation, structures and more.
+          <a href="https://www.skaliber.net/artibus">All Features</a>
+        </p>
+        <a href="https://www.curseforge.com/minecraft/customization/artibus" class="button artibus">Curseforge</a>
+      </div>
+    </section>
+  </main>
+</body>
 
-    var theme = try_default(Cookies.get("theme"), hero_images);
-    set_theme(theme);
-    $("header").style.backgroundImage = `url(${hero_images[theme][0|rnd(hero_images[theme].length)]})`;
-
-    $("#dark-toggle").addEventListener("click", () => {
-      var theme = toggle(try_default(Cookies.get("theme"), hero_images));
-      set_theme(theme);
-      Cookies.set("theme", theme);
-      hero_color = rgb2hex(getComputedStyle($('header')).backgroundColor);
-      if (window.scrollY > (window.innerHeight * 0.75) - 40) {
-        $("header .fade").style.backgroundColor = hero_color + "ff";
-      } else {
-        $("header .fade").style.backgroundColor = hero_color + "00";
-      }
-    });
-
-    var hero_color = rgb2hex(getComputedStyle($('header')).backgroundColor);
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > (window.innerHeight * 0.75) - 40) {
-        $("header .fade").style.backgroundColor = hero_color + "ff";
-      } else {
-        $("header .fade").style.backgroundColor = hero_color + "00";
-      }
-    });
-  </script>
 </html>

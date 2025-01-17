@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #404040;
+}
+
+header {
+    background: #f0f0f0;
+    color: #202020;
+    position: sticky;
+    top: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    background: #404040;
+    color: #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+section {
+    background: #303030;
+    padding: 1rem;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    gap: 1rem;
+}
+
+img {
+    width: 16rem;
+    height: 16rem;
+    object-fit: contain;
+}
+
+img.nn {
+    image-rendering: pixelated;
+}
+
+img.cover {
+    object-fit: cover;
+}
+
+img.fill {
+    object-fit: fill;
+}
+
+section>div {
+    flex-grow: 1;
+    width: 100%;
+}
+
+h2 {
+    margin: 0;
+}
+
+@media (max-width: 100vh) {
+    section {
+        flex-direction: column;
+    }
+
+    section>img {
+        width: 100%;
+        height: 16rem;
+    }
+}
+
+a.button {
+    background: #fff;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+    border: none;
+    text-decoration: none;
+}
+
+a.caelesti,
+a.artibus {
+    background-repeat: repeat-x;
+    background-size: contain;
+    color: #fff;
+    image-rendering: pixelated;
+}
+
+a.caelesti {
+    background-image: url(https://www.skaliber.net/src/gradients/caelesti.png);
+}
+
+a.artibus {
+    background-image: url(https://www.skaliber.net/src/gradients/artibus.png);
+}
+
+.padded {
+    margin: auto;
+    width: min(64rem, 100%);
+    padding: 1rem;
+}
