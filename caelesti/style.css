@@ -33,25 +33,22 @@ main {
   max-width: 64rem;
   margin-inline: auto;
   justify-content: flex-start;
+  gap: 1rem;
 }
 
 aside {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-} aside > div {
-  height: 8rem;
-  padding-right: 1rem;
-} aside > div.selected {
-  background: #292929;
-} aside > div > img {
+} aside > img {
   width: 8rem;
   height: 8rem;
   cursor: pointer;
   transition: transform 0.2s;
-} aside > div > img:hover {
+} aside > img:hover {
   transform: scale(1.1);
 }
+
 #viewer {
   position: sticky;
   top: 1rem;
@@ -82,18 +79,18 @@ footer {
   margin-inline: auto;
 }
 
+.errortext {
+  color: #888;
+}
+
 @media (max-width: 768px) {
   main {
     flex-direction: column;
   }
-
+  
   aside {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  aside > div {
-    padding: 0 0 9rem 0;
   }
 }
