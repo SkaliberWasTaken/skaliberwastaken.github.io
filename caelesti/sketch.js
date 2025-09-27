@@ -2,7 +2,7 @@ on('load', () => {
   const main = $('main');
   const aside = $('aside');
   const viewer = $('#viewer');
-  let selected = $('#lilypads');
+  let selected = null;
   
   viewer.remove();
   
@@ -16,7 +16,13 @@ on('load', () => {
 
   const lilypads = $('#lilypads');
   lilypads.on('click', () => {
-    selected.classList.remove('selected');
+    if (selected == lilypads) {
+      aside.classList.add('wide');
+      viewer.remove();
+      selected = null;
+      return;
+    }
+    if (selected) selected.classList.remove('selected');
     lilypads.classList.add('selected');
     selected = lilypads;
 
@@ -42,7 +48,13 @@ on('load', () => {
 
   const dirt = $('#dirt');
   dirt.on('click', () => {
-    selected.classList.remove('selected');
+    if (selected == dirt) {
+      aside.classList.add('wide');
+      viewer.remove();
+      selected = null;
+      return;
+    }
+    if (selected) selected.classList.remove('selected');
     dirt.classList.add('selected');
     selected = dirt;
 
@@ -68,7 +80,13 @@ on('load', () => {
 
   const glass = $('#glass');
   glass.on('click', () => {
-    selected.classList.remove('selected');
+    if (selected == glass) {
+      aside.classList.add('wide');
+      viewer.remove();
+      selected = null;
+      return;
+    }
+    if (selected) selected.classList.remove('selected');
     glass.classList.add('selected');
     selected = glass;
 
