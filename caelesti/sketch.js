@@ -1,13 +1,17 @@
 on('load', () => {
+  const main = $('main');
+  const aside = $('aside');
   const viewer = $('#viewer');
   let selected = $('#lilypads');
-
+  
+  viewer.remove();
+  
   function updateViewer(html) {
     viewer.classList.add('hidden');
     setTimeout(() => {
       viewer.innerHTML = html;
       viewer.classList.remove('hidden');
-    }, 400);
+    }, 200);
   }
 
   const lilypads = $('#lilypads');
@@ -30,8 +34,11 @@ on('load', () => {
         <li>Variegated lily pads in certain biomes</li>
       </ul>
     `);
+    if (!main.contains(viewer)) {
+      main.appendChild(viewer);
+      aside.classList.remove('wide');
+    }
   });
-  lilypads.click();
 
   const dirt = $('#dirt');
   dirt.on('click', () => {
@@ -53,6 +60,10 @@ on('load', () => {
         <li>Built with Polytone's custom tintindex system</li>
       </ul>
     `);
+    if (!main.contains(viewer)) {
+      main.appendChild(viewer);
+      aside.classList.remove('wide');
+    }
   });
 
   const glass = $('#glass');
@@ -74,5 +85,9 @@ on('load', () => {
         <li>Unique tilesheet for inner and outer textures</li>
       </ul>
     `);
+    if (!main.contains(viewer)) {
+      main.appendChild(viewer);
+      aside.classList.remove('wide');
+    }
   });
 });

@@ -38,8 +38,12 @@ main {
 
 aside {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
+  width: 8rem;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  transition: width 0.2s;
 } aside > img {
   width: 8rem;
   height: 8rem;
@@ -47,6 +51,10 @@ aside {
   transition: transform 0.2s;
 } aside > img:hover {
   transform: scale(1.1);
+}
+
+aside.wide {
+  width: 100%;
 }
 
 #viewer {
@@ -59,7 +67,6 @@ aside {
   width: 100%;
   height: 100%;
   padding: 1rem;
-
   opacity: 1;
   transition: opacity 0.2s, transform 0.2s;
 } #viewer.hidden {
@@ -89,8 +96,8 @@ footer {
   }
   
   aside {
-    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
   }
 }
