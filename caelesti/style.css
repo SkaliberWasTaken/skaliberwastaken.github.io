@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   background: #191919;
   color: #fff;
+  min-height: 100dvh;
 }
 
 header {
@@ -55,6 +56,12 @@ aside {
 
 aside.wide {
   width: 100%;
+  justify-content: center;
+} aside.wide > img {
+  width: 16rem;
+  height: 16rem;
+} aside.wide > img:hover {
+  transform: scale(1.05);
 }
 
 #viewer {
@@ -74,7 +81,7 @@ aside.wide {
   transform: translateY(1rem);
 } iframe {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
 }
 
 ul { padding-left: 1rem }
@@ -84,10 +91,6 @@ footer {
   width: 100vw;
   max-width: 64rem;
   margin-inline: auto;
-}
-
-.errortext {
-  color: #888;
 }
 
 @media (max-width: 768px) {
