@@ -14,6 +14,37 @@ on('load', () => {
     }, 200);
   }
 
+  const mushrooms = $('#mushrooms');
+  mushrooms.on('click', () => {
+    if (selected == mushrooms) {
+      aside.classList.add('wide');
+      viewer.remove();
+      selected = null;
+      return;
+    }
+    if (selected) selected.classList.remove('selected');
+    mushrooms.classList.add('selected');
+    selected = mushrooms;
+
+    updateViewer(`
+      <iframe src="https://www.youtube-nocookie.com/embed/VQt8_Z2TI04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <h2>Table Mushrooms</h2>
+      <p>
+        Both Red and Brown Mushrooms have been completely overhauled in Caelesti.
+        Featuring little table mushrooms on the sides of blocks, and clusters of red shrooms, Caelesti sports a huge variety for you to enjoy.
+      </p>
+      <ul>
+        <li>Table mushrooms on the sides of blocks</li>
+        <li>Smaller mushrooms in the same block</li>
+        <li>Over 8 Million variants!</li>
+      </ul>
+    `);
+    if (!main.contains(viewer)) {
+      main.appendChild(viewer);
+      aside.classList.remove('wide');
+    }
+  });
+
   const lilypads = $('#lilypads');
   lilypads.on('click', () => {
     if (selected == lilypads) {
@@ -30,7 +61,8 @@ on('load', () => {
       <iframe src="https://www.youtube-nocookie.com/embed/7F1-8eFDYQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <h2>Lily Pad Clusters</h2>
       <p>
-        Lily pads look quite different in Caelesti. They feature a complex web of roots that stretch far underwater, occasionally sprouting new smaller lily pads.
+        Lily pads look quite different in Caelesti.
+        They feature a complex web of roots that stretch far underwater, occasionally sprouting new smaller lily pads.
       </p>
       <ul>
         <li>White, pink and yellow water lilies</li>
@@ -61,7 +93,8 @@ on('load', () => {
       <iframe src="https://www.youtube-nocookie.com/embed/y3unmKmqg9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <h2>Dirtier Dirt</h2>
       <p>
-        Caelesti's dirt, and all dirt-related blocks such as grass blocks, podzol, and mycelium, feature a colourmap. Dirt appears in almost every environment in Minecraft, and so it adapts to that environment, improving the overall look of the game.
+        Caelesti's dirt - and all dirt-related blocks such as grass blocks, podzol, and mycelium - features a colourmap.
+        Dirt appears in almost every environment in Minecraft, and so it adapts to that environment, improving the overall look of the game.
       </p>
       <ul>
         <li>Dry, desaturated dirt in hot climates</li>
@@ -92,7 +125,9 @@ on('load', () => {
       <iframe src="https://www.youtube-nocookie.com/embed/YBK1gzalNIM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <h2>Connected Backface Glass</h2>
       <p>
-        Not only does Caelesti feature connected textures for glass, but also a backface! Witness the rear face of glass from the front! Outstanding!
+        Not only does Caelesti feature connected textures for glass, but also a backface!
+        Witness the rear face of glass from the front!
+        Outstanding!
       </p>
       <ul>
         <li>Affects all types of glass including coloured and tinted</li>
