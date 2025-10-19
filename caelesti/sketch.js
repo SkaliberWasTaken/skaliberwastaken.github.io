@@ -31,7 +31,7 @@ on('load', () => {
       <h2>Table Mushrooms</h2>
       <p>
         Both Red and Brown Mushrooms have been completely overhauled in Caelesti.
-        Featuring little table mushrooms on the sides of blocks, and clusters of red shrooms, Caelesti sports a huge variety for you to enjoy.
+        Featuring little table mushrooms on the sides of blocks, and clusters of red shrooms.
       </p>
       <ul>
         <li>Table mushrooms on the sides of blocks</li>
