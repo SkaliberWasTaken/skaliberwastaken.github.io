@@ -6,6 +6,8 @@ camera.position.z = 3;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(window.devicePixelRatio);
+// Set touch-action to none to prevent the browser from scrolling while dragging the cube
+renderer.domElement.style.touchAction = 'none'; 
 document.body.appendChild(renderer.domElement);
 
 function resizeRendererToDisplaySize() {
@@ -15,7 +17,6 @@ function resizeRendererToDisplaySize() {
 
   if (canvas.width !== width || canvas.height !== height) {
     renderer.setSize(width, height, false);
-
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
   }
@@ -29,83 +30,70 @@ const dir = new THREE.DirectionalLight(0xffffff, 1.5);
 dir.position.set(3, 5, 2);
 scene.add(dir);
 
-// Textures (column-style)
+// Textures
 const textureLoader = new THREE.TextureLoader();
-
-const texTop = textureLoader.load('grass_block/top.png');
-const texBottom = textureLoader.load('grass_block/bottom.png');
-const texNS = textureLoader.load('grass_block/side_alt.png');
-const texEW = textureLoader.load('grass_block/side.png');
-
-texTop.magFilter = THREE.NearestFilter;
-texTop.minFilter = THREE.NearestFilter;
-texBottom.magFilter = THREE.NearestFilter;
-texBottom.minFilter = THREE.NearestFilter;
-texNS.magFilter = THREE.NearestFilter;
-texNS.minFilter = THREE.NearestFilter;
-texEW.magFilter = THREE.NearestFilter;
-texEW.minFilter = THREE.NearestFilter;
-
-texTop.colorSpace = THREE.SRGBColorSpace;
-texBottom.colorSpace = THREE.SRGBColorSpace;
-texNS.colorSpace = THREE.SRGBColorSpace;
-texEW.colorSpace = THREE.SRGBColorSpace;
-
-const geometry = new THREE.BoxGeometry();
-
-const materials = [
-  new THREE.MeshPhongMaterial({ map: texEW }), // +X (east)
-  new THREE.MeshPhongMaterial({ map: texEW }), // -X (west)
-  new THREE.MeshPhongMaterial({ map: texTop }), // +Y (top)
-  new THREE.MeshPhongMaterial({ map: texBottom }), // -Y (bottom)
-  new THREE.MeshPhongMaterial({ map: texNS }), // +Z (north)
-  new THREE.MeshPhongMaterial({ map: texNS })  // -Z (south)
+const textures = [
+  textureLoader.load('grass_block/side.png'),     // +X
+  textureLoader.load('grass_block/side.png'),     // -X
+  textureLoader.load('grass_block/top.png'),      // +Y
+  textureLoader.load('grass_block/bottom.png'),   // -Y
+  textureLoader.load('grass_block/side_alt.png'), // +Z
+  textureLoader.load('grass_block/side_alt.png')  // -Z
 ];
 
+textures.forEach(tex => {
+  tex.magFilter = THREE.NearestFilter;
+  tex.minFilter = THREE.NearestFilter;
+  tex.colorSpace = THREE.SRGBColorSpace;
+});
+
+const geometry = new THREE.BoxGeometry();
+const materials = textures.map(tex => new THREE.MeshPhongMaterial({ map: tex }));
 const cube = new THREE.Mesh(geometry, materials);
 scene.add(cube);
 
-let mouseX = 0;
-let mouseY = 0;
+// Interaction State
 let isHovering = false;
-
-// inertia state (angular velocity-ish)
 let velX = 0;
 let velY = 0;
 const accel = 0.001;
 const damping = 0.975;
 
 const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
+const pointer = new THREE.Vector2();
+let prevPointerX = 0;
+let prevPointerY = 0;
+let hasPrevPointer = false;
 
-let prevMouseX = 0;
-let prevMouseY = 0;
-let hasPrevMouse = false;
+// --- Pointer Event Listeners ---
 
-renderer.domElement.addEventListener('mouseenter', () => hasPrevMouse = false);
+// Reset tracking when the pointer enters the element or starts a new touch
+renderer.domElement.addEventListener('pointerdown', () => {
+  hasPrevPointer = false;
+});
 
-renderer.domElement.addEventListener('mousemove', (event) => {
+renderer.domElement.addEventListener('pointermove', (event) => {
   const rect = renderer.domElement.getBoundingClientRect();
+
+  // Normalize pointer coordinates for Raycaster
+  pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
   const x = event.clientX - rect.left;
   const y = event.clientY - rect.top;
 
-  mouse.x = (x / rect.width) * 2 - 1;
-  mouse.y = -(y / rect.height) * 2 + 1;
-
-  // initialize on first valid move
-  if (!hasPrevMouse) {
-    prevMouseX = x;
-    prevMouseY = y;
-    hasPrevMouse = true;
+  if (!hasPrevPointer) {
+    prevPointerX = x;
+    prevPointerY = y;
+    hasPrevPointer = true;
     return;
   }
 
-  const dx = x - prevMouseX;
-  const dy = y - prevMouseY;
+  const dx = x - prevPointerX;
+  const dy = y - prevPointerY;
 
-  prevMouseX = x;
-  prevMouseY = y;
+  prevPointerX = x;
+  prevPointerY = y;
 
   if (isHovering) {
     velX += dx * accel;
@@ -113,16 +101,9 @@ renderer.domElement.addEventListener('mousemove', (event) => {
   }
 });
 
-renderer.domElement.addEventListener('click', () => {
-  raycaster.setFromCamera(mouse, camera);
-  if (raycaster.intersectObject(cube).length === 0) return;
-  
-  // random direction + strength
-  const strength = 0.1;
-  const angle = Math.random() * 2 * Math.PI;
-
-  velX += Math.cos(angle) * strength;
-  velY += Math.sin(angle) * strength;
+// Clear tracking when pointer leaves the canvas
+renderer.domElement.addEventListener('pointerleave', () => {
+  hasPrevPointer = false;
 });
 
 const deltaQuat = new THREE.Quaternion();
@@ -133,22 +114,19 @@ function animate() {
 
   resizeRendererToDisplaySize();
   
-  raycaster.setFromCamera(mouse, camera);
+  // Raycasting for hover detection
+  raycaster.setFromCamera(pointer, camera);
   const intersects = raycaster.intersectObject(cube);
   isHovering = intersects.length > 0;
 
-  // build rotation from velocity (quaternion-based)
   const speed = Math.sqrt(velX * velX + velY * velY);
 
   if (speed > 0) {
-    // axis perpendicular to mouse movement (feels natural)
     axis.set(velY, velX, 0).normalize();
-
     deltaQuat.setFromAxisAngle(axis, speed);
     cube.quaternion.multiplyQuaternions(deltaQuat, cube.quaternion);
   }
 
-  // damping
   velX *= damping;
   velY *= damping;
 
