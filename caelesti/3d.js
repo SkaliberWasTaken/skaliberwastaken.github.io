@@ -6,7 +6,6 @@ camera.position.z = 3;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(window.devicePixelRatio);
-// Set touch-action to none to prevent the browser from scrolling while dragging the cube
 renderer.domElement.style.touchAction = 'none'; 
 document.body.appendChild(renderer.domElement);
 
@@ -22,7 +21,6 @@ function resizeRendererToDisplaySize() {
   }
 }
 
-// Lights
 const ambient = new THREE.AmbientLight(0xffffff, 0.25);
 scene.add(ambient);
 
@@ -30,18 +28,17 @@ const dir = new THREE.DirectionalLight(0xffffff, 1.5);
 dir.position.set(3, 5, 2);
 scene.add(dir);
 
-// Textures
 const textureLoader = new THREE.TextureLoader();
 const textures = [
-  textureLoader.load('grass_block/side.png'),     // +X
-  textureLoader.load('grass_block/side.png'),     // -X
-  textureLoader.load('grass_block/top.png'),      // +Y
-  textureLoader.load('grass_block/bottom.png'),   // -Y
-  textureLoader.load('grass_block/side_alt.png'), // +Z
-  textureLoader.load('grass_block/side_alt.png')  // -Z
+  textureLoader.load('grass_block/side.png'),
+  textureLoader.load('grass_block/side.png'),
+  textureLoader.load('grass_block/top.png'),
+  textureLoader.load('grass_block/bottom.png'),
+  textureLoader.load('grass_block/side_alt.png'),
+  textureLoader.load('grass_block/side_alt.png')
 ];
 
-textures.forEach(tex => {
+textures.forEach((tex) => {
   tex.magFilter = THREE.NearestFilter;
   tex.minFilter = THREE.NearestFilter;
   tex.colorSpace = THREE.SRGBColorSpace;
@@ -52,7 +49,6 @@ const materials = textures.map(tex => new THREE.MeshPhongMaterial({ map: tex }))
 const cube = new THREE.Mesh(geometry, materials);
 scene.add(cube);
 
-// Interaction State
 let isHovering = false;
 let velX = 0;
 let velY = 0;
@@ -65,9 +61,7 @@ let prevPointerX = 0;
 let prevPointerY = 0;
 let hasPrevPointer = false;
 
-// --- Pointer Event Listeners ---
 
-// Reset tracking when the pointer enters the element or starts a new touch
 renderer.domElement.addEventListener('pointerdown', () => {
   hasPrevPointer = false;
 });
@@ -75,7 +69,6 @@ renderer.domElement.addEventListener('pointerdown', () => {
 renderer.domElement.addEventListener('pointermove', (event) => {
   const rect = renderer.domElement.getBoundingClientRect();
 
-  // Normalize pointer coordinates for Raycaster
   pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
   pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
@@ -101,7 +94,6 @@ renderer.domElement.addEventListener('pointermove', (event) => {
   }
 });
 
-// Clear tracking when pointer leaves the canvas
 renderer.domElement.addEventListener('pointerleave', () => {
   hasPrevPointer = false;
 });
@@ -114,7 +106,6 @@ function animate() {
 
   resizeRendererToDisplaySize();
   
-  // Raycasting for hover detection
   raycaster.setFromCamera(pointer, camera);
   const intersects = raycaster.intersectObject(cube);
   isHovering = intersects.length > 0;
@@ -129,6 +120,9 @@ function animate() {
 
   velX *= damping;
   velY *= damping;
+  
+  cube.position.x = velX;
+  cube.position.y = -velY;
 
   if (Math.abs(velX) < 0.00001) velX = 0;
   if (Math.abs(velY) < 0.00001) velY = 0;
