@@ -4,16 +4,16 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
 camera.position.z = 3;
 
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+const canvas = $('canvas');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.domElement.style.touchAction = 'none'; 
-document.body.appendChild(renderer.domElement);
+canvas.style.touchAction = 'none'; 
 
 function resizeRendererToDisplaySize() {
-  const canvas = renderer.domElement;
-  const width = canvas.clientWidth;
-  const height = canvas.clientHeight;
-
+  canvas.style.height = '0px';
+  const { width, height } = canvas.parentNode.getBoundingClientRect();
+  canvas.style.height = '';
+  
   if (canvas.width !== width || canvas.height !== height) {
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
@@ -62,12 +62,12 @@ let prevPointerY = 0;
 let hasPrevPointer = false;
 
 
-renderer.domElement.addEventListener('pointerdown', () => {
+canvas.on('pointerdown', () => {
   hasPrevPointer = false;
 });
 
-renderer.domElement.addEventListener('pointermove', (event) => {
-  const rect = renderer.domElement.getBoundingClientRect();
+canvas.on('pointermove', (event) => {
+  const rect = canvas.getBoundingClientRect();
 
   pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
   pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
@@ -94,7 +94,7 @@ renderer.domElement.addEventListener('pointermove', (event) => {
   }
 });
 
-renderer.domElement.addEventListener('pointerleave', () => {
+canvas.on('pointerleave', () => {
   hasPrevPointer = false;
 });
 
