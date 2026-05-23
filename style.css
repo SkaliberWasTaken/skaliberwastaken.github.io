@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   background: #191919;
   color: #fff;
-  min-height: 100dvh;
+  min-height: 100vh;
 }
 
 header {
@@ -18,10 +18,10 @@ header {
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  font-size: 4rem;
+  font-size: min(8vw, 4rem);
   font-family: sans-serif;
   background: #292929;
-  height: 8rem;
+  height: calc(min(8vw, 4rem) + 3rem);
   padding: 1rem;
 } header > img {
   height: 100%;
@@ -29,12 +29,9 @@ header {
 }
 
 main {
-  padding: 1rem;
   display: flex;
   width: 100%;
   flex-grow: 1;
-  max-width: 64rem;
-  margin-inline: auto;
   justify-content: flex-start;
   gap: 1rem;
 }
