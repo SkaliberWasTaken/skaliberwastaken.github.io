@@ -1,7 +1,7 @@
 import * as THREE from 'https://unpkg.com/three@0.152.2/build/three.module.js';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
 camera.position.z = 3;
 
 const canvas = $('canvas');
@@ -50,8 +50,8 @@ const cube = new THREE.Mesh(geometry, materials);
 scene.add(cube);
 
 let isHovering = false;
-let velX = 0;
-let velY = 0;
+let velX = 0.1;
+let velY = 0.1;
 const accel = 0.001;
 const damping = 0.975;
 
