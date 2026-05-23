@@ -1,13 +1,15 @@
-import * as THREE from 'https://unpkg.com/three@0.152.2/build/three.module.js';
-
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
-camera.position.z = 3;
+import * as THREE from 'three';
 
 const canvas = $('canvas');
+const container = canvas.parentElement;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+camera.position.z = 3;
+
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.setPixelRatio(window.devicePixelRatio);
-canvas.style.touchAction = 'none'; 
+canvas.style.touchAction = 'none';
 
 function resizeRendererToDisplaySize() {
   canvas.style.height = '0px';
@@ -21,7 +23,7 @@ function resizeRendererToDisplaySize() {
   }
 }
 
-const ambient = new THREE.AmbientLight(0xffffff, 0.25);
+const ambient = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambient);
 
 const dir = new THREE.DirectionalLight(0xffffff, 1.5);
@@ -60,7 +62,6 @@ const pointer = new THREE.Vector2();
 let prevPointerX = 0;
 let prevPointerY = 0;
 let hasPrevPointer = false;
-
 
 canvas.on('pointerdown', () => {
   hasPrevPointer = false;
