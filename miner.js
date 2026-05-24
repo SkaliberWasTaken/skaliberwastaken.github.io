@@ -133,6 +133,18 @@ function getPixelColor(imgData, x, y) {
   ];
 }
 
+function getDirtColor(sideTex, x, y, z) {
+  const dirtStartY = Math.floor(sideTex.height * 0.25);
+
+  const texX = Math.abs((x * 13 + y * 7 + z * 17)) % sideTex.width;
+  const texY =
+    dirtStartY +
+    (Math.abs((x * 5 + y * 11 + z * 3)) %
+      (sideTex.height - dirtStartY));
+
+  return getPixelColor(sideTex, texX, texY);
+}
+
 Promise.all([
   getPixelData('grass_block/top.png'),
   getPixelData('grass_block/side.png'),
@@ -162,7 +174,7 @@ Promise.all([
         } else {
           const isExterior = (x === 0 || x === GRID_SIZE - 1 || z === 0 || z === GRID_SIZE - 1);
           if (!isExterior) {
-            r = 0.38; g = 0.27; b = 0.20;
+            [r, g, b] = getDirtColor(sideTex, x, y, z);
           } else {
             const texY = (GRID_SIZE - 1) - y;
             if (z === 0) [r, g, b] = getPixelColor(sideTex, x, texY);
