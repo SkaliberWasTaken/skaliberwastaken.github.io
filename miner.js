@@ -4,7 +4,12 @@ const canvas = $('canvas');
 const container = canvas.parentElement;
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  innerWidth > innerHeight ? 45 : 60, // fov
+  container.clientWidth / container.clientHeight, // aspect ratio
+  0.1, // near plane
+  1000 // far plane
+);
 camera.position.z = 3;
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -18,6 +23,7 @@ function resizeRendererToDisplaySize() {
   
   if (canvas.width !== width || canvas.height !== height) {
     renderer.setSize(width, height, false);
+    camera.fov = innerWidth > innerHeight ? 45 : 60;
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
   }
@@ -178,28 +184,43 @@ Promise.all([
   animate();
 }).catch(err => console.error("Asset initialization failed: ", err));
 
-canvas.addEventListener('pointerdown', () => {
-  hasPrevPointer = false;
+let downX = 0;
+let downY = 0;
+let dragging = false;
+
+canvas.addEventListener('pointerdown', (event) => {
+  downX = event.clientX;
+  downY = event.clientY;
+  dragging = false;
 });
 
-canvas.addEventListener('click', (event) => {
-  raycaster.setFromCamera(pointer, camera);
-  const intersects = raycaster.intersectObject(instancedMesh);
+// canvas.addEventListener('click', (event) => {
+//   raycaster.setFromCamera(pointer, camera);
+//   const intersects = raycaster.intersectObject(instancedMesh);
 
-  if (intersects.length > 0) {
-    const targetIdx = intersects[0].instanceId;
+//   if (intersects.length > 0) {
+//     const targetIdx = intersects[0].instanceId;
     
-    if (voxelStates[targetIdx]) {
-      const targetX = targetIdx % GRID_SIZE;
-      const targetY = Math.floor((targetIdx % (GRID_SIZE * GRID_SIZE)) / GRID_SIZE);
-      const targetZ = Math.floor(targetIdx / (GRID_SIZE * GRID_SIZE));
+//     if (voxelStates[targetIdx]) {
+//       const targetX = targetIdx % GRID_SIZE;
+//       const targetY = Math.floor((targetIdx % (GRID_SIZE * GRID_SIZE)) / GRID_SIZE);
+//       const targetZ = Math.floor(targetIdx / (GRID_SIZE * GRID_SIZE));
 
-      detonate(targetX, targetY, targetZ, 3.5);
-    }
-  }
-});
+//       detonate(targetX, targetY, targetZ, 3.5);
+//     }
+//   }
+// });
 
 canvas.addEventListener('pointermove', (event) => {
+  {
+    const dx = event.clientX - downX;
+    const dy = event.clientY - downY;
+
+    if (Math.hypot(dx, dy) > 10) {
+      dragging = true;
+    }
+  }
+  
   const rect = canvas.getBoundingClientRect();
 
   pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
@@ -224,6 +245,33 @@ canvas.addEventListener('pointermove', (event) => {
   if (isHovering) {
     velX += dx * accel;
     velY += dy * accel;
+  }
+});
+
+canvas.addEventListener('pointerup', (event) => {
+  if (dragging) return;
+
+  const rect = canvas.getBoundingClientRect();
+
+  const tapPointer = new THREE.Vector2(
+    ((event.clientX - rect.left) / rect.width) * 2 - 1,
+    -((event.clientY - rect.top) / rect.height) * 2 + 1
+  );
+
+  raycaster.setFromCamera(tapPointer, camera);
+
+  const intersects = raycaster.intersectObject(instancedMesh);
+
+  if (intersects.length > 0) {
+    const targetIdx = intersects[0].instanceId;
+
+    if (voxelStates[targetIdx]) {
+      const targetX = targetIdx % GRID_SIZE;
+      const targetY = Math.floor((targetIdx % (GRID_SIZE * GRID_SIZE)) / GRID_SIZE);
+      const targetZ = Math.floor(targetIdx / (GRID_SIZE * GRID_SIZE));
+
+      detonate(targetX, targetY, targetZ, 3.5);
+    }
   }
 });
 
